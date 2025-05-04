@@ -640,8 +640,302 @@
 // export default ProjectsSection;
 
 
+// import { Link } from "react-router-dom";
+// import { motion } from "framer-motion";
+
+// const projects = [
+//   {
+//     title: "Selwyn Marathon",
+//     slug: "selwyn-marathon",
+//     location: "New Zealand",
+//     subtitle: "Selwyn Marathon, Lincoln Events Centre",
+//     description: "Ensuring smooth traffic flow for 5,000+ participants at one of New Zealand's premier marathons.",
+//     image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+//   },
+//   {
+//     title: "Rugby Event 2022",
+//     slug: "rugby-event-2022",
+//     location: "Christchurch",
+//     subtitle: "Rugby Event 2022, Christchurch",
+//     description: "Traffic management for the 2022 Rugby Event in Christchurch.",
+//     image: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80",
+//   },
+//   {
+//     title: "Cherry Blossom Festival",
+//     slug: "cherry-blossom-festival",
+//     location: "Matangi",
+//     subtitle: "Cherry Blossom Festival, Matangi",
+//     description: "Making the Cherry Blossom Festival safe and accessible for all.",
+//     image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80",
+//   },
+// ];
+
+// export default function ProjectsSection() {
+//   return (
+//     <section className="relative w-full py-24 overflow-hidden" id="projects">
+//       {/* Diagonal split background */}
+//       <div className="absolute inset-0 -z-10 pointer-events-none">
+//         <svg width="100%" height="100%" viewBox="0 0 1440 600" preserveAspectRatio="none" className="absolute inset-0 w-full h-full">
+//           <polygon points="0,0 1440,0 1440,400 0,600" fill="#FFD600" opacity="0.07" />
+//           <rect width="1440" height="600" fill="#000" />
+//         </svg>
+//       </div>
+
+//       {/* Section Heading */}
+//       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+//         <div className="flex flex-col items-center">
+//           <div className="flex items-center gap-2 mb-2">
+//             <svg className="w-10 h-10 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+//               <rect x="9" y="2" width="6" height="20" rx="3" fill="#FFD600" />
+//               <rect x="2" y="9" width="20" height="6" rx="3" fill="#FFD600" />
+//             </svg>
+//             <h2 className="text-4xl font-extrabold text-yellow-400 tracking-tight">
+//               Our Projects
+//             </h2>
+//           </div>
+//           <motion.div
+//             className="h-1 w-24 bg-yellow-400 rounded-full"
+//             initial={{ scaleX: 0 }}
+//             whileInView={{ scaleX: 1 }}
+//             viewport={{ once: true }}
+//             transition={{ duration: 0.8, type: "spring" }}
+//             style={{ transformOrigin: "center" }}
+//           />
+//           <p className="mt-6 text-lg text-white/80 text-center max-w-2xl">
+//             See how we keep New Zealand's major events moving safely and efficiently.
+//           </p>
+//         </div>
+//       </div>
+
+//       {/* Masonry-like staggered cards on desktop, horizontal scroll on mobile */}
+//       <div className="relative z-10 px-4">
+//         <div className="flex flex-col md:grid md:grid-cols-3 gap-y-16 md:gap-x-8 max-w-6xl mx-auto">
+//           {projects.map((project, i) => (
+//             <motion.div
+//               key={project.slug}
+//               className={`group relative mb-8 md:mb-0`}
+//               initial={{ y: 40, opacity: 0 }}
+//               whileInView={{ y: 0, opacity: 1 }}
+//               viewport={{ once: true }}
+//               transition={{ delay: 0.2 + i * 0.13, duration: 0.7, type: "spring" }}
+//             >
+//               <Link
+//                 to={`/projects/${project.slug}`}
+//                 className="block rounded-3xl shadow-2xl overflow-hidden hover:shadow-yellow-400/40 transition-shadow duration-300"
+//                 tabIndex={0}
+//               >
+//                 <div className="relative group h-80">
+//                   <img
+//                     src={project.image}
+//                     alt={project.title}
+//                     className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+//                   />
+//                   {/* Animated badge */}
+//                   <motion.span
+//                     className="absolute top-5 left-5 bg-yellow-400 text-black px-4 py-1.5 rounded-full font-bold shadow-lg text-sm uppercase tracking-wider"
+//                     initial={{ y: -20, opacity: 0 }}
+//                     whileInView={{ y: 0, opacity: 1 }}
+//                     transition={{ delay: 0.3 + i * 0.15, duration: 0.6, type: "spring" }}
+//                   >
+//                     {project.location}
+//                   </motion.span>
+//                   {/* Overlay on hover */}
+//                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+//                   {/* View Project Button */}
+//                   <motion.span
+//                     className="absolute bottom-6 left-1/2 -translate-x-1/2 px-6 py-2 rounded-full bg-yellow-400 text-black font-semibold shadow-lg text-base opacity-0 group-hover:opacity-100 transition-all duration-300"
+//                     initial={{ y: 20 }}
+//                     whileHover={{ y: 0 }}
+//                   >
+//                     View Project →
+//                   </motion.span>
+//                 </div>
+//                 <div className="px-7 py-6 bg-black/80">
+//                   <h3 className="text-2xl font-bold text-yellow-400 mb-1">{project.title}</h3>
+//                   <div className="text-sm text-white/60 mb-2">{project.subtitle}</div>
+//                   <p className="text-white/80 text-base line-clamp-3">{project.description}</p>
+//                 </div>
+//               </Link>
+//             </motion.div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+
+// import { Link } from "react-router-dom";
+// import { motion } from "framer-motion";
+// import React from "react";
+
+// const projects = [
+//   {
+//     title: "Selwyn Marathon",
+//     slug: "selwyn-marathon",
+//     location: "New Zealand",
+//     subtitle: "Selwyn Marathon, Lincoln Events Centre",
+//     description: "Ensuring smooth traffic flow for 5,000+ participants at one of New Zealand's premier marathons.",
+//     image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+//   },
+//   {
+//     title: "Rugby Event 2022",
+//     slug: "rugby-event-2022",
+//     location: "Christchurch",
+//     subtitle: "Rugby Event 2022, Christchurch",
+//     description: "Traffic management for the 2022 Rugby Event in Christchurch.",
+//     image: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80",
+//   },
+//   {
+//     title: "Cherry Blossom Festival",
+//     slug: "cherry-blossom-festival",
+//     location: "Matangi",
+//     subtitle: "Cherry Blossom Festival, Matangi",
+//     description: "Making the Cherry Blossom Festival safe and accessible for all.",
+//     image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80",
+//   },
+// ];
+
+// function SkyBackground({ children }) {
+//   return (
+//     <div className="sky-background" style={{ minHeight: "100vh", position: "relative", overflow: "hidden" }}>
+//       {/* Animated stars */}
+//       {[...Array(18)].map((_, i) => (
+//         <div
+//           key={i}
+//           className="star"
+//           style={{
+//             left: `${Math.random() * 100}%`,
+//             width: `${1 + Math.random() * 2}px`,
+//             height: `${1 + Math.random() * 2}px`,
+//             animationDuration: `${4 + Math.random() * 4}s`,
+//             animationDelay: `${Math.random() * 5}s`,
+//             opacity: 0.7 + Math.random() * 0.3,
+//           }}
+//         />
+//       ))}
+//       {children}
+//       {/* CSS for sky and stars */}
+//       <style>{`
+//         .sky-background {
+//           background: linear-gradient(to bottom, #00111a 0%, #003366 50%, #66ccff 100%);
+//         }
+//         @keyframes starFall {
+//           0% {
+//             transform: translateY(-40px) translateX(0);
+//             opacity: 1;
+//           }
+//           100% {
+//             transform: translateY(100vh) translateX(60px);
+//             opacity: 0;
+//           }
+//         }
+//         .star {
+//           position: absolute;
+//           top: -10px;
+//           border-radius: 50%;
+//           background: white;
+//           animation-name: starFall;
+//           animation-timing-function: linear;
+//           animation-iteration-count: infinite;
+//           z-index: 1;
+//         }
+//       `}</style>
+//     </div>
+//   );
+// }
+
+// export default function ProjectsSection() {
+//   return (
+//     <SkyBackground>
+//       <section className="relative w-full py-24 text-white overflow-hidden" id="projects" style={{zIndex: 2}}>
+//         {/* Timeline vertical line */}
+//         <div className="hidden md:block absolute left-1/2 top-24 bottom-24 w-2 bg-yellow-400/60 rounded-full -translate-x-1/2 z-0" />
+
+//         {/* Section Heading */}
+//         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
+//           <div className="flex flex-col items-center">
+//             <div className="flex items-center gap-2 mb-2">
+//               <svg className="w-10 h-10 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+//                 <circle cx="12" cy="12" r="10" stroke="#FFD600" strokeWidth="3" fill="none"/>
+//                 <rect x="9" y="6" width="6" height="12" rx="3" fill="#FFD600" />
+//               </svg>
+//               <h2 className="text-4xl font-extrabold text-yellow-400 tracking-tight">
+//                 Event Projects Timeline
+//               </h2>
+//             </div>
+//             <div className="h-1 w-24 bg-yellow-400 rounded-full" />
+//             <p className="mt-6 text-lg text-white/80">
+//               Our journey managing New Zealand's most important events, one milestone at a time.
+//             </p>
+//           </div>
+//         </div>
+
+//         {/* Timeline cards */}
+//         <div className="relative z-10 max-w-4xl mx-auto flex flex-col gap-16">
+//           {projects.map((project, i) => (
+//             <div key={project.slug} className={`flex flex-col md:flex-row items-center justify-between gap-8 ${i % 2 === 1 ? "md:flex-row-reverse" : ""}`}>
+//               {/* Connector dot and line */}
+//               <div className="hidden md:flex flex-col items-center z-10">
+//                 <div className="w-8 h-8 rounded-full bg-yellow-400 border-4 border-white shadow-lg flex items-center justify-center">
+//                   <svg className="w-4 h-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+//                     <rect x="9" y="2" width="6" height="20" rx="3" fill="#FFD600" />
+//                   </svg>
+//                 </div>
+//                 {i < projects.length - 1 && (
+//                   <div className="flex-1 w-2 bg-yellow-400/60 rounded-full my-2" style={{ minHeight: 60 }} />
+//                 )}
+//               </div>
+//               {/* Card */}
+//               <motion.div
+//                 className="relative bg-black/80 border border-yellow-400/30 rounded-3xl shadow-2xl overflow-hidden w-full md:w-2/3 group"
+//                 initial={{ opacity: 0, y: 40 }}
+//                 whileInView={{ opacity: 1, y: 0 }}
+//                 viewport={{ once: true }}
+//                 transition={{ delay: 0.2 + i * 0.13, duration: 0.7, type: "spring" }}
+//               >
+//                 <Link to={`/projects/${project.slug}`} className="block group">
+//                   <div className="relative h-56 w-full overflow-hidden">
+//                     <img
+//                       src={project.image}
+//                       alt={project.title}
+//                       className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+//                     />
+//                     {/* Overlay */}
+//                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+//                     {/* Badge */}
+//                     <span className="absolute top-5 left-5 bg-yellow-400 text-black px-4 py-1.5 rounded-full font-bold shadow-lg text-xs uppercase tracking-wider">
+//                       {project.location}
+//                     </span>
+//                     {/* View Project Button */}
+//                     <motion.span
+//                       className="absolute bottom-6 left-1/2 -translate-x-1/2 px-6 py-2 rounded-full bg-yellow-400 text-black font-semibold shadow-lg text-base opacity-0 group-hover:opacity-100 transition-all duration-300"
+//                       initial={{ y: 20 }}
+//                       whileHover={{ y: 0 }}
+//                     >
+//                       View Project →
+//                     </motion.span>
+//                   </div>
+//                   <div className="px-7 py-6">
+//                     <h3 className="text-2xl font-bold text-yellow-400 mb-1">{project.title}</h3>
+//                     <div className="text-sm text-white/60 mb-2">{project.subtitle}</div>
+//                     <p className="text-white/80 text-base line-clamp-3">{project.description}</p>
+//                   </div>
+//                 </Link>
+//               </motion.div>
+//             </div>
+//           ))}
+//         </div>
+//       </section>
+//     </SkyBackground>
+//   );
+// }
+
+
+
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import React from "react";
 
 const projects = [
   {
@@ -670,96 +964,192 @@ const projects = [
   },
 ];
 
+const timelineIcons = [
+  // Traffic light
+  <svg key="light" className="w-7 h-7" viewBox="0 0 24 24" fill="none">
+    <rect x="8" y="4" width="8" height="16" rx="4" fill="#222" stroke="#FFD600" strokeWidth="2" />
+    <circle cx="12" cy="8" r="1.5" fill="#FF4D4D" />
+    <circle cx="12" cy="12" r="1.5" fill="#FFD600" />
+    <circle cx="12" cy="16" r="1.5" fill="#4DFF4D" />
+  </svg>,
+  // Traffic cone
+  <svg key="cone" className="w-7 h-7" viewBox="0 0 24 24" fill="none">
+    <polygon points="12,2 19,20 5,20" fill="#FFD600" stroke="#222" strokeWidth="1" />
+    <rect x="8" y="16" width="8" height="2" fill="#fff" />
+    <rect x="9" y="12" width="6" height="2" fill="#fff" />
+  </svg>,
+  // Barricade
+  <svg key="barricade" className="w-7 h-7" viewBox="0 0 24 24" fill="none">
+    <rect x="4" y="10" width="16" height="4" rx="2" fill="#FFD600" stroke="#222" strokeWidth="1.5" />
+    <rect x="6" y="14" width="2" height="4" fill="#FFD600" />
+    <rect x="16" y="14" width="2" height="4" fill="#FFD600" />
+    <rect x="8" y="10" width="2" height="4" fill="#222" opacity="0.3"/>
+    <rect x="14" y="10" width="2" height="4" fill="#222" opacity="0.3"/>
+  </svg>,
+];
+
+function SkyBackground({ children }) {
+  return (
+    <div className="sky-background" style={{ minHeight: "100vh", position: "relative", overflow: "hidden" }}>
+      {/* Animated stars */}
+      {[...Array(18)].map((_, i) => (
+        <div
+          key={i}
+          className="star"
+          style={{
+            left: `${Math.random() * 100}%`,
+            width: `${1 + Math.random() * 2}px`,
+            height: `${1 + Math.random() * 2}px`,
+            animationDuration: `${4 + Math.random() * 4}s`,
+            animationDelay: `${Math.random() * 5}s`,
+            opacity: 0.7 + Math.random() * 0.3,
+          }}
+        />
+      ))}
+      {/* Animated road chevrons */}
+      <svg
+        className="absolute bottom-0 left-0 w-full h-24 z-0"
+        viewBox="0 0 1440 96"
+        fill="none"
+        style={{ pointerEvents: "none" }}
+      >
+        <rect width="1440" height="96" fill="#222" />
+        {/* Lane markings */}
+        {[...Array(20)].map((_, i) => (
+          <rect
+            key={i}
+            x={i * 72 + 20}
+            y="44"
+            width="32"
+            height="8"
+            rx="4"
+            fill="#FFD600"
+            opacity="0.8"
+          />
+        ))}
+        {/* Animated chevron (car effect) */}
+        <motion.polygon
+          points="100,70 110,86 90,86"
+          fill="#FFD600"
+          initial={{ x: 0 }}
+          animate={{ x: [0, 1300, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+        />
+      </svg>
+      {children}
+      {/* CSS for sky and stars */}
+      <style>{`
+        .sky-background {
+          background: linear-gradient(to bottom, #00111a 0%, #003366 50%, #66ccff 100%);
+        }
+        @keyframes starFall {
+          0% {
+            transform: translateY(-40px) translateX(0);
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(100vh) translateX(60px);
+            opacity: 0;
+          }
+        }
+        .star {
+          position: absolute;
+          top: -10px;
+          border-radius: 50%;
+          background: white;
+          animation-name: starFall;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+          z-index: 1;
+        }
+      `}</style>
+    </div>
+  );
+}
+
 export default function ProjectsSection() {
   return (
-    <section className="relative w-full py-24 overflow-hidden" id="projects">
-      {/* Diagonal split background */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        <svg width="100%" height="100%" viewBox="0 0 1440 600" preserveAspectRatio="none" className="absolute inset-0 w-full h-full">
-          <polygon points="0,0 1440,0 1440,400 0,600" fill="#FFD600" opacity="0.07" />
-          <rect width="1440" height="600" fill="#000" />
-        </svg>
-      </div>
+    <SkyBackground>
+      <section className="relative w-full py-24 text-white overflow-hidden" id="projects" style={{zIndex: 2}}>
+        {/* Timeline vertical line */}
+        <div className="hidden md:block absolute left-1/2 top-24 bottom-36 w-2 bg-yellow-400/60 rounded-full -translate-x-1/2 z-0" />
 
-      {/* Section Heading */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-        <div className="flex flex-col items-center">
-          <div className="flex items-center gap-2 mb-2">
-            <svg className="w-10 h-10 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <rect x="9" y="2" width="6" height="20" rx="3" fill="#FFD600" />
-              <rect x="2" y="9" width="20" height="6" rx="3" fill="#FFD600" />
-            </svg>
-            <h2 className="text-4xl font-extrabold text-yellow-400 tracking-tight">
-              Our Projects
-            </h2>
+        {/* Section Heading */}
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
+          <div className="flex flex-col items-center">
+            <div className="flex items-center gap-2 mb-2">
+              {/* Traffic light icon */}
+              <svg className="w-10 h-10 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <rect x="8" y="4" width="8" height="16" rx="4" fill="#222" stroke="#FFD600" strokeWidth="2" />
+                <circle cx="12" cy="8" r="1.5" fill="#FF4D4D" />
+                <circle cx="12" cy="12" r="1.5" fill="#FFD600" />
+                <circle cx="12" cy="16" r="1.5" fill="#4DFF4D" />
+              </svg>
+              <h2 className="text-4xl font-extrabold text-yellow-400 tracking-tight">
+                Traffic Event Projects
+              </h2>
+            </div>
+            <div className="h-1 w-24 bg-yellow-400 rounded-full" />
+            <p className="mt-6 text-lg text-white/80">
+              Our journey managing New Zealand's most important events, one milestone at a time.
+            </p>
           </div>
-          <motion.div
-            className="h-1 w-24 bg-yellow-400 rounded-full"
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, type: "spring" }}
-            style={{ transformOrigin: "center" }}
-          />
-          <p className="mt-6 text-lg text-white/80 text-center max-w-2xl">
-            See how we keep New Zealand's major events moving safely and efficiently.
-          </p>
         </div>
-      </div>
 
-      {/* Masonry-like staggered cards on desktop, horizontal scroll on mobile */}
-      <div className="relative z-10 px-4">
-        <div className="flex flex-col md:grid md:grid-cols-3 gap-y-16 md:gap-x-8 max-w-6xl mx-auto">
+        {/* Timeline cards */}
+        <div className="relative z-10 max-w-4xl mx-auto flex flex-col gap-16">
           {projects.map((project, i) => (
-            <motion.div
-              key={project.slug}
-              className={`group relative mb-8 md:mb-0`}
-              initial={{ y: 40, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 + i * 0.13, duration: 0.7, type: "spring" }}
-            >
-              <Link
-                to={`/projects/${project.slug}`}
-                className="block rounded-3xl shadow-2xl overflow-hidden hover:shadow-yellow-400/40 transition-shadow duration-300"
-                tabIndex={0}
+            <div key={project.slug} className={`flex flex-col md:flex-row items-center justify-between gap-8 ${i % 2 === 1 ? "md:flex-row-reverse" : ""}`}>
+              {/* Connector dot and line */}
+              <div className="hidden md:flex flex-col items-center z-10">
+                <div className="w-12 h-12 rounded-full bg-yellow-400 border-4 border-white shadow-lg flex items-center justify-center">
+                  {timelineIcons[i % timelineIcons.length]}
+                </div>
+                {i < projects.length - 1 && (
+                  <div className="flex-1 w-2 bg-yellow-400/60 rounded-full my-2" style={{ minHeight: 60 }} />
+                )}
+              </div>
+              {/* Card */}
+              <motion.div
+                className="relative bg-black/80 border border-yellow-400/30 rounded-3xl shadow-2xl overflow-hidden w-full md:w-2/3 group"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 + i * 0.13, duration: 0.7, type: "spring" }}
               >
-                <div className="relative group h-80">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
-                  />
-                  {/* Animated badge */}
-                  <motion.span
-                    className="absolute top-5 left-5 bg-yellow-400 text-black px-4 py-1.5 rounded-full font-bold shadow-lg text-sm uppercase tracking-wider"
-                    initial={{ y: -20, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.3 + i * 0.15, duration: 0.6, type: "spring" }}
-                  >
-                    {project.location}
-                  </motion.span>
-                  {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
-                  {/* View Project Button */}
-                  <motion.span
-                    className="absolute bottom-6 left-1/2 -translate-x-1/2 px-6 py-2 rounded-full bg-yellow-400 text-black font-semibold shadow-lg text-base opacity-0 group-hover:opacity-100 transition-all duration-300"
-                    initial={{ y: 20 }}
-                    whileHover={{ y: 0 }}
-                  >
-                    View Project →
-                  </motion.span>
-                </div>
-                <div className="px-7 py-6 bg-black/80">
-                  <h3 className="text-2xl font-bold text-yellow-400 mb-1">{project.title}</h3>
-                  <div className="text-sm text-white/60 mb-2">{project.subtitle}</div>
-                  <p className="text-white/80 text-base line-clamp-3">{project.description}</p>
-                </div>
-              </Link>
-            </motion.div>
+                <Link to={`/projects/${project.slug}`} className="block group">
+                  <div className="relative h-56 w-full overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+                    />
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+                    {/* Badge */}
+                    <span className="absolute top-5 left-5 bg-yellow-400 text-black px-4 py-1.5 rounded-full font-bold shadow-lg text-xs uppercase tracking-wider">
+                      {project.location}
+                    </span>
+                    {/* View Project Button */}
+                    <motion.span
+                      className="absolute bottom-6 left-1/2 -translate-x-1/2 px-6 py-2 rounded-full bg-yellow-400 text-black font-semibold shadow-lg text-base opacity-0 group-hover:opacity-100 transition-all duration-300"
+                      initial={{ y: 20 }}
+                      whileHover={{ y: 0 }}
+                    >
+                      View Project →
+                    </motion.span>
+                  </div>
+                  <div className="px-7 py-6">
+                    <h3 className="text-2xl font-bold text-yellow-400 mb-1">{project.title}</h3>
+                    <div className="text-sm text-white/60 mb-2">{project.subtitle}</div>
+                    <p className="text-white/80 text-base line-clamp-3">{project.description}</p>
+                  </div>
+                </Link>
+              </motion.div>
+            </div>
           ))}
         </div>
-      </div>
-    </section>
+      </section>
+    </SkyBackground>
   );
 }
