@@ -1161,107 +1161,819 @@
 
 
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+// import React, { useState } from "react";
+// import { motion, AnimatePresence } from "framer-motion";
+// import { Link } from "react-router-dom";
+
+// const projects = [
+//   {
+//     title: "Selwyn Marathon",
+//     slug: "selwyn-marathon",
+//     location: "New Zealand",
+//     subtitle: "Selwyn Marathon, Lincoln Events Centre",
+//     description: "Ensuring smooth traffic flow for 5,000+ participants at one of New Zealand's premier marathons. Our team managed road closures, detours, and safety protocols to create a seamless experience for runners and spectators alike.",
+//     image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+//     stats: [
+//       { label: "Participants", value: "5,000+" },
+//       { label: "Road Closures", value: "12 km" },
+//       { label: "Duration", value: "8 hours" }
+//     ]
+//   },
+//   {
+//     title: "Rugby Championship",
+//     slug: "rugby-event-2022",
+//     location: "Christchurch",
+//     subtitle: "International Rugby Championship 2022",
+//     description: "Managed traffic for 25,000+ fans at Christchurch Stadium. Implemented dynamic traffic routing, parking management, and pedestrian flow systems to handle peak arrival/departure times efficiently.",
+//     image: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80",
+//     stats: [
+//       { label: "Attendees", value: "25,000+" },
+//       { label: "Traffic Officers", value: "45" },
+//       { label: "Parking Spaces", value: "8,000" }
+//     ]
+//   },
+//   {
+//     title: "Cherry Blossom Festival",
+//     slug: "cherry-blossom-festival",
+//     location: "Matangi",
+//     subtitle: "Annual Cherry Blossom Festival",
+//     description: "Coordinated traffic for this popular seasonal event attracting 15,000+ visitors. Designed one-way systems, shuttle services, and accessible parking to accommodate the rural location's limited infrastructure.",
+//     image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80",
+//     stats: [
+//       { label: "Visitors", value: "15,000+" },
+//       { label: "Shuttle Buses", value: "12" },
+//       { label: "Event Days", value: "3" }
+//     ]
+//   },
+//   {
+//     title: "City Cycle Challenge",
+//     slug: "city-cycle-challenge",
+//     location: "Auckland",
+//     subtitle: "Urban Cycling Festival 2023",
+//     description: "Implemented temporary bike lanes and traffic diversions for this city-wide cycling event. Coordinated with local businesses and residents to minimize disruption while ensuring participant safety.",
+//     image: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=800&q=80",
+//     stats: [
+//       { label: "Cyclists", value: "3,200" },
+//       { label: "Route Length", value: "42 km" },
+//       { label: "Intersections", value: "38" }
+//     ]
+//   }
+// ];
+
+// const trafficIcons = [
+//   // Traffic cone
+//   <svg key="cone" viewBox="0 0 24 24" fill="none">
+//     <polygon points="12,2 19,20 5,20" fill="#FFD600" stroke="#222" strokeWidth="1" />
+//     <rect x="8" y="16" width="8" height="2" fill="#fff" />
+//     <rect x="9" y="12" width="6" height="2" fill="#fff" />
+//   </svg>,
+//   // Traffic light
+//   <svg key="light" viewBox="0 0 24 24" fill="none">
+//     <rect x="8" y="4" width="8" height="16" rx="4" fill="#222" stroke="#FFD600" strokeWidth="2" />
+//     <circle cx="12" cy="8" r="1.5" fill="#FF4D4D" />
+//     <circle cx="12" cy="12" r="1.5" fill="#FFD600" />
+//     <circle cx="12" cy="16" r="1.5" fill="#4DFF4D" />
+//   </svg>,
+//   // Road sign
+//   <svg key="sign" viewBox="0 0 24 24" fill="none">
+//     <rect x="6" y="6" width="12" height="12" rx="2" fill="#FFD600" stroke="#222" strokeWidth="1.5" />
+//     <path d="M12 9V15M12 15L9 12M12 15L15 12" stroke="#222" strokeWidth="2" />
+//   </svg>,
+//   // Barricade
+//   <svg key="barricade" viewBox="0 0 24 24" fill="none">
+//     <rect x="4" y="10" width="16" height="4" rx="2" fill="#FFD600" stroke="#222" strokeWidth="1.5" />
+//     <rect x="6" y="14" width="2" height="4" fill="#FFD600" />
+//     <rect x="16" y="14" width="2" height="4" fill="#FFD600" />
+//     <rect x="8" y="10" width="2" height="4" fill="#222" opacity="0.3"/>
+//     <rect x="14" y="10" width="2" height="4" fill="#222" opacity="0.3"/>
+//   </svg>
+// ];
+
+// export default function ProjectsSection() {
+//   const [activeProject, setActiveProject] = useState(null);
+//   const [viewMode, setViewMode] = useState("timeline"); // 'timeline' or 'grid'
+
+//   // Animated car for the highway
+//   const CarIcon = () => (
+//     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+//       <rect x="4" y="12" width="16" height="6" rx="2" fill="#FFD600" />
+//       <rect x="6" y="8" width="12" height="4" fill="#FFD600" />
+//       <circle cx="8" cy="18" r="2" fill="#222" />
+//       <circle cx="16" cy="18" r="2" fill="#222" />
+//     </svg>
+//   );
+
+//   return (
+//     <section className="relative w-full py-20 md:py-32 bg-gradient-to-b from-gray-900 to-black text-white overflow-hidden" id="projects">
+//       {/* Animated background elements */}
+//       <div className="absolute inset-0 overflow-hidden pointer-events-none">
+//         {/* Moving headlights effect */}
+//         <motion.div 
+//           className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-yellow-400/5 via-transparent to-yellow-400/5"
+//           initial={{ x: "-100%" }}
+//           animate={{ x: "100%" }}
+//           transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+//         />
+        
+//         {/* Road markings pattern */}
+//         <div className="absolute bottom-0 left-0 w-full h-32 bg-[length:120px_40px] bg-repeat-x"
+//           style={{ 
+//             backgroundImage: 'linear-gradient(90deg, transparent 60px, #FFD600 60px, #FFD600 90px, transparent 90px)',
+//             maskImage: 'linear-gradient(to top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)'
+//           }}
+//         />
+//       </div>
+
+//       {/* Section Header */}
+//       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+//         <motion.div
+//           initial={{ opacity: 0, y: 20 }}
+//           whileInView={{ opacity: 1, y: 0 }}
+//           transition={{ duration: 0.8 }}
+//           viewport={{ once: true }}
+//           className="text-center"
+//         >
+//           <div className="inline-flex items-center gap-3 mb-4 px-4 py-2 bg-yellow-400/10 border border-yellow-400/30 rounded-full">
+//             <svg className="w-5 h-5 text-yellow-400" fill="none" viewBox="0 0 24 24">
+//               <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4V20M20 12H4"/>
+//             </svg>
+//             <span className="text-sm font-medium text-yellow-400">Event Portfolio</span>
+//           </div>
+          
+//           <h2 className="text-4xl md:text-5xl font-bold mb-4">
+//             <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600">
+//               Traffic Management Projects
+//             </span>
+//           </h2>
+          
+//           <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+//             Explore our successful event traffic management solutions across New Zealand's most prestigious gatherings.
+//           </p>
+          
+//           {/* View toggle buttons */}
+//           <div className="mt-8 flex justify-center gap-2">
+//             <button
+//               onClick={() => setViewMode("timeline")}
+//               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${viewMode === "timeline" ? "bg-yellow-400 text-black" : "bg-gray-800 text-gray-300 hover:bg-gray-700"}`}
+//             >
+//               <span className="flex items-center gap-2">
+//                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24">
+//                   <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4V20M4 4H20M4 12H20M4 20H20"/>
+//                 </svg>
+//                 Timeline View
+//               </span>
+//             </button>
+//             <button
+//               onClick={() => setViewMode("grid")}
+//               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${viewMode === "grid" ? "bg-yellow-400 text-black" : "bg-gray-800 text-gray-300 hover:bg-gray-700"}`}
+//             >
+//               <span className="flex items-center gap-2">
+//                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24">
+//                   <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6H20M4 12H20M4 18H20"/>
+//                 </svg>
+//                 Grid View
+//               </span>
+//             </button>
+//           </div>
+//         </motion.div>
+//       </div>
+
+//       {/* Projects Display */}
+//       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//         {viewMode === "timeline" ? (
+//           <div className="relative">
+//             {/* Highway Timeline */}
+//             <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-yellow-400/30 -translate-x-1/2">
+//               {/* Animated car moving along the timeline */}
+//               <motion.div
+//                 className="absolute -left-3 -top-4 w-7 h-7 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg"
+//                 initial={{ top: "0%" }}
+//                 animate={{ top: "100%" }}
+//                 transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+//               >
+//                 <CarIcon />
+//               </motion.div>
+//             </div>
+
+//             {/* Project Cards */}
+//             <div className="space-y-24 md:space-y-32">
+//               {projects.map((project, index) => (
+//                 <motion.div
+//                   key={project.slug}
+//                   initial={{ opacity: 0, y: 40 }}
+//                   whileInView={{ opacity: 1, y: 0 }}
+//                   transition={{ duration: 0.6, delay: index * 0.1 }}
+//                   viewport={{ once: true, margin: "-100px" }}
+//                   className={`relative flex flex-col md:flex-row items-center ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}
+//                 >
+//                   {/* Connector dot */}
+//                   <div className="hidden md:flex items-center justify-center w-16 h-16 mx-4 bg-gray-800 border-2 border-yellow-400 rounded-full shadow-lg z-10">
+//                     <div className="w-8 h-8">
+//                       {trafficIcons[index % trafficIcons.length]}
+//                     </div>
+//                   </div>
+
+//                   {/* Project Card */}
+//                   <div className={`w-full md:w-1/2 ${index % 2 === 0 ? "md:pr-8" : "md:pl-8"}`}>
+//                     <motion.div 
+//                       whileHover={{ y: -5 }}
+//                       className="group relative bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-2xl overflow-hidden shadow-xl hover:shadow-yellow-400/20 transition-all duration-300"
+//                     >
+//                       <div className="relative h-48 overflow-hidden">
+//                         <img
+//                           src={project.image}
+//                           alt={project.title}
+//                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+//                         />
+//                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+//                         <div className="absolute top-4 left-4 flex items-center gap-2">
+//                           <span className="px-3 py-1 bg-yellow-400 text-black text-xs font-bold rounded-full">
+//                             {project.location}
+//                           </span>
+//                         </div>
+//                       </div>
+//                       <div className="p-6">
+//                         <div className="flex justify-between items-start mb-3">
+//                           <div>
+//                             <h3 className="text-xl font-bold text-white">{project.title}</h3>
+//                             <p className="text-sm text-yellow-400">{project.subtitle}</p>
+//                           </div>
+//                           <button 
+//                             onClick={() => setActiveProject(index)}
+//                             className="p-2 bg-gray-700 rounded-full hover:bg-yellow-400 hover:text-black transition-colors"
+//                             aria-label="View details"
+//                           >
+//                             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24">
+//                               <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z"/>
+//                               <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" clipRule="evenodd"/>
+//                               <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12C5 8.13401 8.13401 5 12 5C15.866 5 19 8.13401 19 12Z" clipRule="evenodd"/>
+//                             </svg>
+//                           </button>
+//                         </div>
+//                         <p className="text-gray-300 text-sm mb-4 line-clamp-2">{project.description}</p>
+                        
+//                         {/* Stats */}
+//                         <div className="flex gap-3">
+//                           {project.stats.map((stat, i) => (
+//                             <div key={i} className="flex-1 bg-gray-800/50 rounded-lg p-2 text-center border border-gray-700">
+//                               <div className="text-yellow-400 font-bold text-lg">{stat.value}</div>
+//                               <div className="text-xs text-gray-400">{stat.label}</div>
+//                             </div>
+//                           ))}
+//                         </div>
+                        
+//                         <Link
+//                           to={`/projects/${project.slug}`}
+//                           className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-yellow-400 text-black font-medium rounded-full hover:bg-yellow-300 transition-colors text-sm"
+//                         >
+//                           View Case Study
+//                           <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24">
+//                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5L21 12M21 12L14 19M21 12H3"/>
+//                           </svg>
+//                         </Link>
+//                       </div>
+//                     </motion.div>
+//                   </div>
+//                 </motion.div>
+//               ))}
+//             </div>
+//           </div>
+//         ) : (
+//           // Grid View
+//           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+//             {projects.map((project, index) => (
+//               <motion.div
+//                 key={project.slug}
+//                 initial={{ opacity: 0, y: 40 }}
+//                 whileInView={{ opacity: 1, y: 0 }}
+//                 transition={{ duration: 0.6, delay: index * 0.1 }}
+//                 viewport={{ once: true, margin: "-100px" }}
+//                 className="group relative"
+//               >
+//                 <div className="absolute inset-0 bg-yellow-400/10 border border-yellow-400/30 rounded-2xl -z-10 group-hover:bg-yellow-400/20 transition-colors" />
+//                 <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+//                   <div className="relative h-48 overflow-hidden">
+//                     <img
+//                       src={project.image}
+//                       alt={project.title}
+//                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+//                     />
+//                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+//                     <div className="absolute top-4 left-4 flex items-center gap-2">
+//                       <span className="px-3 py-1 bg-yellow-400 text-black text-xs font-bold rounded-full">
+//                         {project.location}
+//                       </span>
+//                     </div>
+//                   </div>
+//                   <div className="p-5 flex-1 flex flex-col">
+//                     <div className="flex justify-between items-start mb-3">
+//                       <div>
+//                         <h3 className="text-lg font-bold text-white">{project.title}</h3>
+//                         <p className="text-xs text-yellow-400">{project.subtitle}</p>
+//                       </div>
+//                       <button 
+//                         onClick={() => setActiveProject(index)}
+//                         className="p-1.5 bg-gray-700 rounded-full hover:bg-yellow-400 hover:text-black transition-colors"
+//                         aria-label="View details"
+//                       >
+//                         <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24">
+//                           <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z"/>
+//                           <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" clipRule="evenodd"/>
+//                           <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12C5 8.13401 8.13401 5 12 5C15.866 5 19 8.13401 19 12Z" clipRule="evenodd"/>
+//                         </svg>
+//                       </button>
+//                     </div>
+//                     <p className="text-gray-300 text-sm mb-4 line-clamp-3">{project.description}</p>
+                    
+//                     {/* Stats mini view */}
+//                     <div className="mt-auto pt-4 border-t border-gray-700/50">
+//                       <div className="flex gap-2 justify-between">
+//                         {project.stats.slice(0, 2).map((stat, i) => (
+//                           <div key={i} className="text-center">
+//                             <div className="text-yellow-400 font-bold text-sm">{stat.value}</div>
+//                             <div className="text-xs text-gray-400">{stat.label}</div>
+//                           </div>
+//                         ))}
+//                       </div>
+//                     </div>
+                    
+//                     <Link
+//                       to={`/projects/${project.slug}`}
+//                       className="mt-4 inline-flex items-center justify-center gap-1 px-3 py-1.5 bg-yellow-400 text-black font-medium rounded-full hover:bg-yellow-300 transition-colors text-xs w-full"
+//                     >
+//                       View Details
+//                       <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24">
+//                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5L21 12M21 12L14 19M21 12H3"/>
+//                       </svg>
+//                     </Link>
+//                   </div>
+//                 </div>
+//               </motion.div>
+//             ))}
+//           </div>
+//         )}
+//       </div>
+
+//       {/* Project Modal */}
+//       <AnimatePresence>
+//         {activeProject !== null && (
+//           <motion.div
+//             className="fixed inset-0 z-50 flex items-center justify-center p-4"
+//             initial={{ opacity: 0 }}
+//             animate={{ opacity: 1 }}
+//             exit={{ opacity: 0 }}
+//             onClick={() => setActiveProject(null)}
+//           >
+//             <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+            
+//             <motion.div
+//               className="relative max-w-4xl w-full bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden shadow-2xl border border-gray-700 max-h-[90vh] flex flex-col"
+//               initial={{ scale: 0.9, y: 40 }}
+//               animate={{ scale: 1, y: 0 }}
+//               exit={{ scale: 0.9, y: 40 }}
+//               onClick={e => e.stopPropagation()}
+//             >
+//               <button
+//                 className="absolute top-4 right-4 z-10 p-2 bg-gray-700 rounded-full hover:bg-yellow-400 hover:text-black transition-colors"
+//                 onClick={() => setActiveProject(null)}
+//                 aria-label="Close"
+//               >
+//                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24">
+//                   <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6L18 18"/>
+//                 </svg>
+//               </button>
+              
+//               <div className="relative h-64 overflow-hidden">
+//                 <img
+//                   src={projects[activeProject].image}
+//                   alt={projects[activeProject].title}
+//                   className="w-full h-full object-cover"
+//                 />
+//                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+//                 <div className="absolute bottom-6 left-6">
+//                   <h2 className="text-3xl font-bold text-white">{projects[activeProject].title}</h2>
+//                   <p className="text-yellow-400">{projects[activeProject].subtitle}</p>
+//                 </div>
+//               </div>
+              
+//               <div className="p-6 overflow-y-auto flex-1">
+//                 <div className="mb-6">
+//                   <h3 className="text-lg font-semibold text-white mb-2">Project Overview</h3>
+//                   <p className="text-gray-300">{projects[activeProject].description}</p>
+//                 </div>
+                
+//                 <div className="mb-6">
+//                   <h3 className="text-lg font-semibold text-white mb-3">Key Statistics</h3>
+//                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+//                     {projects[activeProject].stats.map((stat, i) => (
+//                       <div key={i} className="bg-gray-700/50 rounded-lg p-3 text-center border border-gray-600">
+//                         <div className="text-yellow-400 font-bold text-xl mb-1">{stat.value}</div>
+//                         <div className="text-sm text-gray-300">{stat.label}</div>
+//                       </div>
+//                     ))}
+//                   </div>
+//                 </div>
+                
+//                 <div className="mb-6">
+//                   <h3 className="text-lg font-semibold text-white mb-2">Our Approach</h3>
+//                   <p className="text-gray-300">
+//                     For the {projects[activeProject].title}, our team implemented a comprehensive traffic management plan that included:
+//                   </p>
+//                   <ul className="mt-3 space-y-2 text-gray-300">
+//                     <li className="flex items-start gap-2">
+//                       <svg className="w-5 h-5 text-yellow-400 flex-shrink-0" fill="none" viewBox="0 0 24 24">
+//                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13L9 17L19 7"/>
+//                       </svg>
+//                       <span>Customized traffic routing and signage</span>
+//                     </li>
+//                     <li className="flex items-start gap-2">
+//                       <svg className="w-5 h-5 text-yellow-400 flex-shrink-0" fill="none" viewBox="0 0 24 24">
+//                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13L9 17L19 7"/>
+//                       </svg>
+//                       <span>Coordinated road closures and detours</span>
+//                     </li>
+//                     <li className="flex items-start gap-2">
+//                       <svg className="w-5 h-5 text-yellow-400 flex-shrink-0" fill="none" viewBox="0 0 24 24">
+//                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13L9 17L19 7"/>
+//                       </svg>
+//                       <span>24/7 monitoring and rapid response teams</span>
+//                     </li>
+//                     <li className="flex items-start gap-2">
+//                       <svg className="w-5 h-5 text-yellow-400 flex-shrink-0" fill="none" viewBox="0 0 24 24">
+//                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13L9 17L19 7"/>
+//                       </svg>
+//                       <span>Emergency vehicle access planning</span>
+//                     </li>
+//                   </ul>
+//                 </div>
+                
+//                 <div className="flex flex-wrap gap-4 mt-8">
+//                   <Link
+//                     to={`/projects/${projects[activeProject].slug}`}
+//                     className="px-6 py-3 bg-yellow-400 text-black font-medium rounded-full hover:bg-yellow-300 transition-colors flex items-center gap-2"
+//                   >
+//                     View Full Case Study
+//                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24">
+//                       <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5L21 12M21 12L14 19M21 12H3"/>
+//                     </svg>
+//                   </Link>
+//                   <button className="px-6 py-3 bg-gray-700 text-white font-medium rounded-full hover:bg-gray-600 transition-colors">
+//                     Contact Our Team
+//                   </button>
+//                 </div>
+//               </div>
+//             </motion.div>
+//           </motion.div>
+//         )}
+//       </AnimatePresence>
+//     </section>
+//   );
+// }
+
+
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const projects = [
   {
     title: "Selwyn Marathon",
     slug: "selwyn-marathon",
-    location: "New Zealand",
-    subtitle: "Selwyn Marathon, Lincoln Events Centre",
-    description: "Ensuring smooth traffic flow for 5,000+ participants at one of New Zealand's premier marathons. Our team managed road closures, detours, and safety protocols to create a seamless experience for runners and spectators alike.",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+    location: "Lincoln, NZ",
+    subtitle: "Annual Marathon Event",
+    description: "Managed traffic flow for 5,000+ runners across 42km of urban and rural roads. Implemented rolling road closures, spectator zones, and emergency access routes while minimizing disruption to local businesses.",
+    image: "https://images.unsplash.com/photo-1543351611-58f69d7c1781?auto=format&fit=crop&w=1200&q=80",
     stats: [
-      { label: "Participants", value: "5,000+" },
-      { label: "Road Closures", value: "12 km" },
-      { label: "Duration", value: "8 hours" }
+      { label: "Participants", value: "5,200", icon: "🏃" },
+      { label: "Road Closures", value: "42km", icon: "🛣️" },
+      { label: "Traffic Staff", value: "85", icon: "👮" }
+    ],
+    challenges: [
+      "Coordinating with local businesses",
+      "Managing spectator crossings",
+      "Emergency vehicle access"
     ]
   },
   {
-    title: "Rugby Championship",
+    title: "International Rugby",
     slug: "rugby-event-2022",
     location: "Christchurch",
-    subtitle: "International Rugby Championship 2022",
-    description: "Managed traffic for 25,000+ fans at Christchurch Stadium. Implemented dynamic traffic routing, parking management, and pedestrian flow systems to handle peak arrival/departure times efficiently.",
-    image: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80",
+    subtitle: "Championship Finals 2022",
+    description: "Designed and executed traffic management for 35,000 spectators at Christchurch Stadium. Implemented phased arrival/departure systems, 8,000 parking spaces, and pedestrian flow optimization.",
+    image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1200&q=80",
     stats: [
-      { label: "Attendees", value: "25,000+" },
-      { label: "Traffic Officers", value: "45" },
-      { label: "Parking Spaces", value: "8,000" }
+      { label: "Attendees", value: "35,000", icon: "👥" },
+      { label: "Parking Spaces", value: "8,000", icon: "🅿️" },
+      { label: "Shuttle Buses", value: "45", icon: "🚌" }
+    ],
+    challenges: [
+      "Peak arrival/departure surges",
+      "Ride-share coordination",
+      "Disabled access"
     ]
   },
   {
-    title: "Cherry Blossom Festival",
+    title: "Cherry Blossom Fest",
     slug: "cherry-blossom-festival",
-    location: "Matangi",
-    subtitle: "Annual Cherry Blossom Festival",
-    description: "Coordinated traffic for this popular seasonal event attracting 15,000+ visitors. Designed one-way systems, shuttle services, and accessible parking to accommodate the rural location's limited infrastructure.",
-    image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80",
+    location: "Matangi Gardens",
+    subtitle: "Seasonal Cultural Event",
+    description: "Created traffic solutions for 18,000 daily visitors to rural location with limited infrastructure. Implemented one-way systems, satellite parking with shuttles, and pedestrian pathways.",
+    image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80",
     stats: [
-      { label: "Visitors", value: "15,000+" },
-      { label: "Shuttle Buses", value: "12" },
-      { label: "Event Days", value: "3" }
+      { label: "Daily Visitors", value: "18,000", icon: "👥" },
+      { label: "Shuttle Buses", value: "22", icon: "🚌" },
+      { label: "Parking Spaces", value: "3,500", icon: "🅿️" }
+    ],
+    challenges: [
+      "Rural road limitations",
+      "Pedestrian/vehicle interaction",
+      "Weather contingencies"
     ]
   },
   {
     title: "City Cycle Challenge",
     slug: "city-cycle-challenge",
-    location: "Auckland",
-    subtitle: "Urban Cycling Festival 2023",
-    description: "Implemented temporary bike lanes and traffic diversions for this city-wide cycling event. Coordinated with local businesses and residents to minimize disruption while ensuring participant safety.",
-    image: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=800&q=80",
+    location: "Auckland CBD",
+    subtitle: "Urban Cycling Festival",
+    description: "Implemented temporary bike lanes and traffic diversions for 4,500 cyclists through Auckland's CBD. Coordinated with 150+ businesses for minimal disruption during the 45km route.",
+    image: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=1200&q=80",
     stats: [
-      { label: "Cyclists", value: "3,200" },
-      { label: "Route Length", value: "42 km" },
-      { label: "Intersections", value: "38" }
+      { label: "Cyclists", value: "4,500", icon: "🚴" },
+      { label: "Route Length", value: "45km", icon: "🛣️" },
+      { label: "Intersections", value: "62", icon: "🚦" }
+    ],
+    challenges: [
+      "CBD business access",
+      "Temporary bike lanes",
+      "Public transport coordination"
     ]
   }
 ];
 
-const trafficIcons = [
-  // Traffic cone
-  <svg key="cone" viewBox="0 0 24 24" fill="none">
-    <polygon points="12,2 19,20 5,20" fill="#FFD600" stroke="#222" strokeWidth="1" />
-    <rect x="8" y="16" width="8" height="2" fill="#fff" />
-    <rect x="9" y="12" width="6" height="2" fill="#fff" />
-  </svg>,
-  // Traffic light
-  <svg key="light" viewBox="0 0 24 24" fill="none">
-    <rect x="8" y="4" width="8" height="16" rx="4" fill="#222" stroke="#FFD600" strokeWidth="2" />
-    <circle cx="12" cy="8" r="1.5" fill="#FF4D4D" />
-    <circle cx="12" cy="12" r="1.5" fill="#FFD600" />
-    <circle cx="12" cy="16" r="1.5" fill="#4DFF4D" />
-  </svg>,
-  // Road sign
-  <svg key="sign" viewBox="0 0 24 24" fill="none">
-    <rect x="6" y="6" width="12" height="12" rx="2" fill="#FFD600" stroke="#222" strokeWidth="1.5" />
-    <path d="M12 9V15M12 15L9 12M12 15L15 12" stroke="#222" strokeWidth="2" />
-  </svg>,
-  // Barricade
-  <svg key="barricade" viewBox="0 0 24 24" fill="none">
-    <rect x="4" y="10" width="16" height="4" rx="2" fill="#FFD600" stroke="#222" strokeWidth="1.5" />
-    <rect x="6" y="14" width="2" height="4" fill="#FFD600" />
-    <rect x="16" y="14" width="2" height="4" fill="#FFD600" />
-    <rect x="8" y="10" width="2" height="4" fill="#222" opacity="0.3"/>
-    <rect x="14" y="10" width="2" height="4" fill="#222" opacity="0.3"/>
-  </svg>
-];
+const TrafficIcon = ({ type }) => {
+  const icons = {
+    cone: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <polygon points="12,2 19,20 5,20" fill="#FFD600" stroke="#222" strokeWidth="1" />
+        <rect x="8" y="16" width="8" height="2" fill="#fff" />
+        <rect x="9" y="12" width="6" height="2" fill="#fff" />
+      </svg>
+    ),
+    light: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <rect x="8" y="4" width="8" height="16" rx="4" fill="#222" stroke="#FFD600" strokeWidth="2" />
+        <circle cx="12" cy="8" r="1.5" fill="#FF4D4D" />
+        <circle cx="12" cy="12" r="1.5" fill="#FFD600" />
+        <circle cx="12" cy="16" r="1.5" fill="#4DFF4D" />
+      </svg>
+    ),
+    sign: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <rect x="6" y="6" width="12" height="12" rx="2" fill="#FFD600" stroke="#222" strokeWidth="1.5" />
+        <path d="M12 9V15M12 15L9 12M12 15L15 12" stroke="#222" strokeWidth="2" />
+      </svg>
+    ),
+    barricade: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <rect x="4" y="10" width="16" height="4" rx="2" fill="#FFD600" stroke="#222" strokeWidth="1.5" />
+        <rect x="6" y="14" width="2" height="4" fill="#FFD600" />
+        <rect x="16" y="14" width="2" height="4" fill="#FFD600" />
+        <rect x="8" y="10" width="2" height="4" fill="#222" opacity="0.3"/>
+        <rect x="14" y="10" width="2" height="4" fill="#222" opacity="0.3"/>
+      </svg>
+    )
+  };
+  
+  return <div className="w-6 h-6">{icons[type] || icons.cone}</div>;
+};
 
-export default function ProjectsSection() {
-  const [activeProject, setActiveProject] = useState(null);
-  const [viewMode, setViewMode] = useState("timeline"); // 'timeline' or 'grid'
-
-  // Animated car for the highway
-  const CarIcon = () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+const CarIcon = () => {
+  return (
+    <motion.svg 
+      width="24" 
+      height="24" 
+      viewBox="0 0 24 24"
+      animate={{
+        x: [0, 2, 0],
+        transition: { duration: 1.5, repeat: Infinity }
+      }}
+    >
       <rect x="4" y="12" width="16" height="6" rx="2" fill="#FFD600" />
       <rect x="6" y="8" width="12" height="4" fill="#FFD600" />
       <circle cx="8" cy="18" r="2" fill="#222" />
       <circle cx="16" cy="18" r="2" fill="#222" />
-    </svg>
+    </motion.svg>
   );
+};
+
+const ProjectModal = ({ project, onClose }) => {
+  const [activeTab, setActiveTab] = useState('overview');
+  
+  return (
+    <motion.div
+      className="relative max-w-5xl w-full bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden shadow-2xl border border-gray-700 max-h-[90vh] flex flex-col"
+      initial={{ scale: 0.9, y: 40 }}
+      animate={{ scale: 1, y: 0 }}
+      exit={{ scale: 0.9, y: 40 }}
+    >
+      <button
+        className="absolute top-4 right-4 z-10 p-2 bg-gray-700 rounded-full hover:bg-yellow-400 hover:text-black transition-colors"
+        onClick={onClose}
+        aria-label="Close"
+      >
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6L18 18"/>
+        </svg>
+      </button>
+      
+      <div className="relative h-72 overflow-hidden">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+        <div className="absolute bottom-6 left-6">
+          <h2 className="text-3xl font-bold text-white">{project.title}</h2>
+          <p className="text-yellow-400">{project.subtitle}</p>
+        </div>
+      </div>
+      
+      <div className="p-6 overflow-y-auto flex-1">
+        <div className="flex border-b border-gray-700 mb-6">
+          <button
+            onClick={() => setActiveTab('overview')}
+            className={`px-4 py-2 font-medium ${activeTab === 'overview' ? 'text-yellow-400 border-b-2 border-yellow-400' : 'text-gray-400 hover:text-white'}`}
+          >
+            Overview
+          </button>
+          <button
+            onClick={() => setActiveTab('stats')}
+            className={`px-4 py-2 font-medium ${activeTab === 'stats' ? 'text-yellow-400 border-b-2 border-yellow-400' : 'text-gray-400 hover:text-white'}`}
+          >
+            Statistics
+          </button>
+          <button
+            onClick={() => setActiveTab('solutions')}
+            className={`px-4 py-2 font-medium ${activeTab === 'solutions' ? 'text-yellow-400 border-b-2 border-yellow-400' : 'text-gray-400 hover:text-white'}`}
+          >
+            Our Solutions
+          </button>
+        </div>
+        
+        {activeTab === 'overview' && (
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-2">Project Overview</h3>
+            <p className="text-gray-300 mb-6">{project.description}</p>
+            
+            <div className="grid grid-cols-3 gap-4 mb-6">
+              {project.stats.map((stat, i) => (
+                <div key={i} className="bg-gray-700/50 rounded-lg p-3 text-center border border-gray-600">
+                  <div className="text-2xl mb-1">{stat.icon}</div>
+                  <div className="text-yellow-400 font-bold text-xl">{stat.value}</div>
+                  <div className="text-sm text-gray-300">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+            
+            <h3 className="text-lg font-semibold text-white mb-2">Key Challenges</h3>
+            <ul className="space-y-3 text-gray-300">
+              {project.challenges.map((challenge, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-yellow-400 flex-shrink-0" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9V12M12 15H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"/>
+                  </svg>
+                  <span>{challenge}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        
+        {activeTab === 'stats' && (
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-4">Event Statistics</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {project.stats.map((stat, i) => (
+                <div key={i} className="bg-gray-700/50 rounded-xl p-4 border border-gray-600 flex items-center gap-4">
+                  <div className="text-3xl">{stat.icon}</div>
+                  <div>
+                    <div className="text-yellow-400 font-bold text-xl">{stat.value}</div>
+                    <div className="text-gray-300">{stat.label}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <h3 className="text-lg font-semibold text-white mt-6 mb-4">Traffic Flow Metrics</h3>
+            <div className="bg-gray-700/50 rounded-xl p-4 border border-gray-600">
+              <div className="h-48 flex items-center justify-center text-gray-400">
+                [Traffic Flow Visualization]
+              </div>
+              <div className="mt-4 text-sm text-gray-300">
+                Our real-time monitoring showed optimal traffic flow throughout the event with no major congestion points.
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {activeTab === 'solutions' && (
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-4">Our Solutions</h3>
+            <div className="space-y-4">
+              <div className="bg-gray-700/50 rounded-xl p-4 border border-gray-600">
+                <div className="flex items-start gap-3">
+                  <div className="bg-yellow-400/20 text-yellow-400 rounded-full p-2">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12.75L11.25 15 15 9.75M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-white mb-1">Custom Traffic Plan</h4>
+                    <p className="text-gray-300">Tailored traffic management strategy addressing all event-specific requirements and local conditions.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-gray-700/50 rounded-xl p-4 border border-gray-600">
+                <div className="flex items-start gap-3">
+                  <div className="bg-yellow-400/20 text-yellow-400 rounded-full p-2">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 18L22 22M2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-white mb-1">Advanced Signage</h4>
+                    <p className="text-gray-300">Clear, visible signage at all critical points with real-time updates for changing conditions.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-gray-700/50 rounded-xl p-4 border border-gray-600">
+                <div className="flex items-start gap-3">
+                  <div className="bg-yellow-400/20 text-yellow-400 rounded-full p-2">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18V12M12 6V12M12 12H18M12 12H6"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-white mb-1">Staff Coordination</h4>
+                    <p className="text-gray-300">Trained personnel at all key locations with centralized communication for rapid response.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <h3 className="text-lg font-semibold text-white mt-8 mb-4">Results Achieved</h3>
+            <div className="bg-yellow-400/10 border border-yellow-400/30 rounded-xl p-4">
+              <div className="flex items-start gap-3">
+                <div className="bg-yellow-400/20 text-yellow-400 rounded-full p-2">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13L9 17L19 7"/>
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-gray-300">The event was completed with zero traffic-related incidents and received overwhelmingly positive feedback from all stakeholders. Our solutions reduced typical congestion by 40% compared to previous years.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+        
+        <div className="flex flex-wrap gap-4 mt-8">
+          <Link
+            to={`/projects/${project.slug}`}
+            className="px-6 py-3 bg-yellow-400 text-black font-medium rounded-full hover:bg-yellow-300 transition-colors flex items-center gap-2"
+          >
+            View Full Case Study
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5L21 12M21 12L14 19M21 12H3"/>
+            </svg>
+          </Link>
+          <button className="px-6 py-3 bg-gray-700 text-white font-medium rounded-full hover:bg-gray-600 transition-colors">
+            Contact Our Team
+          </button>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const ProjectsSection = () => {
+  const [activeProject, setActiveProject] = useState(null);
+  const [isScrolling, setIsScrolling] = useState(false);
+  
+  // Animate highway markers on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolling(true);
+      clearTimeout(window.scrollTimer);
+      window.scrollTimer = setTimeout(() => setIsScrolling(false), 100);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <section className="relative w-full py-20 md:py-32 bg-gradient-to-b from-gray-900 to-black text-white overflow-hidden" id="projects">
@@ -1282,6 +1994,31 @@ export default function ProjectsSection() {
             maskImage: 'linear-gradient(to top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)'
           }}
         />
+        
+        {/* Floating traffic cones */}
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute"
+            style={{
+              top: `${10 + (i * 15)}%`,
+              left: `${5 + (i * 15)}%`,
+              width: '40px',
+              height: '40px'
+            }}
+            animate={{
+              y: [0, -20, 0],
+              rotate: [0, 5, -5, 0]
+            }}
+            transition={{
+              duration: 4 + Math.random() * 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
+            <TrafficIcon type="cone" />
+          </motion.div>
+        ))}
       </div>
 
       {/* Section Header */}
@@ -1294,153 +2031,40 @@ export default function ProjectsSection() {
           className="text-center"
         >
           <div className="inline-flex items-center gap-3 mb-4 px-4 py-2 bg-yellow-400/10 border border-yellow-400/30 rounded-full">
-            <svg className="w-5 h-5 text-yellow-400" fill="none" viewBox="0 0 24 24">
-              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4V20M20 12H4"/>
-            </svg>
-            <span className="text-sm font-medium text-yellow-400">Event Portfolio</span>
+            <CarIcon />
+            <span className="text-sm font-medium text-yellow-400">Our Event Portfolio</span>
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600">
-              Traffic Management Projects
+              Traffic Management Timeline
             </span>
           </h2>
           
           <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-            Explore our successful event traffic management solutions across New Zealand's most prestigious gatherings.
+            Follow the road to explore how we've successfully managed traffic for New Zealand's premier events
           </p>
-          
-          {/* View toggle buttons */}
-          <div className="mt-8 flex justify-center gap-2">
-            <button
-              onClick={() => setViewMode("timeline")}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${viewMode === "timeline" ? "bg-yellow-400 text-black" : "bg-gray-800 text-gray-300 hover:bg-gray-700"}`}
-            >
-              <span className="flex items-center gap-2">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24">
-                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4V20M4 4H20M4 12H20M4 20H20"/>
-                </svg>
-                Timeline View
-              </span>
-            </button>
-            <button
-              onClick={() => setViewMode("grid")}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${viewMode === "grid" ? "bg-yellow-400 text-black" : "bg-gray-800 text-gray-300 hover:bg-gray-700"}`}
-            >
-              <span className="flex items-center gap-2">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24">
-                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6H20M4 12H20M4 18H20"/>
-                </svg>
-                Grid View
-              </span>
-            </button>
-          </div>
         </motion.div>
       </div>
 
-      {/* Projects Display */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {viewMode === "timeline" ? (
-          <div className="relative">
-            {/* Highway Timeline */}
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-yellow-400/30 -translate-x-1/2">
-              {/* Animated car moving along the timeline */}
-              <motion.div
-                className="absolute -left-3 -top-4 w-7 h-7 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg"
-                initial={{ top: "0%" }}
-                animate={{ top: "100%" }}
-                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-              >
-                <CarIcon />
-              </motion.div>
-            </div>
-
-            {/* Project Cards */}
-            <div className="space-y-24 md:space-y-32">
-              {projects.map((project, index) => (
-                <motion.div
-                  key={project.slug}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  className={`relative flex flex-col md:flex-row items-center ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}
-                >
-                  {/* Connector dot */}
-                  <div className="hidden md:flex items-center justify-center w-16 h-16 mx-4 bg-gray-800 border-2 border-yellow-400 rounded-full shadow-lg z-10">
-                    <div className="w-8 h-8">
-                      {trafficIcons[index % trafficIcons.length]}
-                    </div>
-                  </div>
-
-                  {/* Project Card */}
-                  <div className={`w-full md:w-1/2 ${index % 2 === 0 ? "md:pr-8" : "md:pl-8"}`}>
-                    <motion.div 
-                      whileHover={{ y: -5 }}
-                      className="group relative bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-2xl overflow-hidden shadow-xl hover:shadow-yellow-400/20 transition-all duration-300"
-                    >
-                      <div className="relative h-48 overflow-hidden">
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                        <div className="absolute top-4 left-4 flex items-center gap-2">
-                          <span className="px-3 py-1 bg-yellow-400 text-black text-xs font-bold rounded-full">
-                            {project.location}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="p-6">
-                        <div className="flex justify-between items-start mb-3">
-                          <div>
-                            <h3 className="text-xl font-bold text-white">{project.title}</h3>
-                            <p className="text-sm text-yellow-400">{project.subtitle}</p>
-                          </div>
-                          <button 
-                            onClick={() => setActiveProject(index)}
-                            className="p-2 bg-gray-700 rounded-full hover:bg-yellow-400 hover:text-black transition-colors"
-                            aria-label="View details"
-                          >
-                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24">
-                              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z"/>
-                              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" clipRule="evenodd"/>
-                              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12C5 8.13401 8.13401 5 12 5C15.866 5 19 8.13401 19 12Z" clipRule="evenodd"/>
-                            </svg>
-                          </button>
-                        </div>
-                        <p className="text-gray-300 text-sm mb-4 line-clamp-2">{project.description}</p>
-                        
-                        {/* Stats */}
-                        <div className="flex gap-3">
-                          {project.stats.map((stat, i) => (
-                            <div key={i} className="flex-1 bg-gray-800/50 rounded-lg p-2 text-center border border-gray-700">
-                              <div className="text-yellow-400 font-bold text-lg">{stat.value}</div>
-                              <div className="text-xs text-gray-400">{stat.label}</div>
-                            </div>
-                          ))}
-                        </div>
-                        
-                        <Link
-                          to={`/projects/${project.slug}`}
-                          className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-yellow-400 text-black font-medium rounded-full hover:bg-yellow-300 transition-colors text-sm"
-                        >
-                          View Case Study
-                          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5L21 12M21 12L14 19M21 12H3"/>
-                          </svg>
-                        </Link>
-                      </div>
-                    </motion.div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+      {/* Timeline View */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative">
+          {/* Highway Timeline */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-yellow-400/30 -translate-x-1/2">
+            {/* Animated car moving along the timeline */}
+            <motion.div
+              className="absolute -left-3 -top-4 w-7 h-7 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg"
+              initial={{ top: "0%" }}
+              animate={{ top: "100%" }}
+              transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+            >
+              <CarIcon />
+            </motion.div>
           </div>
-        ) : (
-          // Grid View
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          {/* Project Cards */}
+          <div className="space-y-24 md:space-y-32">
             {projects.map((project, index) => (
               <motion.div
                 key={project.slug}
@@ -1448,70 +2072,77 @@ export default function ProjectsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true, margin: "-100px" }}
-                className="group relative"
+                className={`relative flex flex-col md:flex-row items-center ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}
               >
-                <div className="absolute inset-0 bg-yellow-400/10 border border-yellow-400/30 rounded-2xl -z-10 group-hover:bg-yellow-400/20 transition-colors" />
-                <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                    <div className="absolute top-4 left-4 flex items-center gap-2">
-                      <span className="px-3 py-1 bg-yellow-400 text-black text-xs font-bold rounded-full">
-                        {project.location}
-                      </span>
-                    </div>
+                {/* Connector dot */}
+                <div className="hidden md:flex items-center justify-center w-16 h-16 mx-4 bg-gray-800 border-2 border-yellow-400 rounded-full shadow-lg z-10">
+                  <div className="w-8 h-8">
+                    {index % 2 === 0 ? <TrafficIcon type="light" /> : <TrafficIcon type="sign" />}
                   </div>
-                  <div className="p-5 flex-1 flex flex-col">
-                    <div className="flex justify-between items-start mb-3">
-                      <div>
-                        <h3 className="text-lg font-bold text-white">{project.title}</h3>
-                        <p className="text-xs text-yellow-400">{project.subtitle}</p>
+                </div>
+
+                {/* Project Card */}
+                <div className={`w-full md:w-1/2 ${index % 2 === 0 ? "md:pr-8" : "md:pl-8"}`}>
+                  <motion.div 
+                    whileHover={{ y: -5 }}
+                    className="group relative bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-2xl overflow-hidden shadow-xl hover:shadow-yellow-400/20 transition-all duration-300"
+                  >
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                      <div className="absolute top-4 left-4 flex items-center gap-2">
+                        <span className="px-3 py-1 bg-yellow-400 text-black text-xs font-bold rounded-full">
+                          {project.location}
+                        </span>
                       </div>
-                      <button 
-                        onClick={() => setActiveProject(index)}
-                        className="p-1.5 bg-gray-700 rounded-full hover:bg-yellow-400 hover:text-black transition-colors"
-                        aria-label="View details"
-                      >
-                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24">
-                          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z"/>
-                          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" clipRule="evenodd"/>
-                          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12C5 8.13401 8.13401 5 12 5C15.866 5 19 8.13401 19 12Z" clipRule="evenodd"/>
-                        </svg>
-                      </button>
                     </div>
-                    <p className="text-gray-300 text-sm mb-4 line-clamp-3">{project.description}</p>
-                    
-                    {/* Stats mini view */}
-                    <div className="mt-auto pt-4 border-t border-gray-700/50">
-                      <div className="flex gap-2 justify-between">
-                        {project.stats.slice(0, 2).map((stat, i) => (
-                          <div key={i} className="text-center">
-                            <div className="text-yellow-400 font-bold text-sm">{stat.value}</div>
+                    <div className="p-6">
+                      <div className="flex justify-between items-start mb-3">
+                        <div>
+                          <h3 className="text-xl font-bold text-white">{project.title}</h3>
+                          <p className="text-sm text-yellow-400">{project.subtitle}</p>
+                        </div>
+                        <button 
+                          onClick={() => setActiveProject(index)}
+                          className="p-2 bg-gray-700 rounded-full hover:bg-yellow-400 hover:text-black transition-colors"
+                          aria-label="View details"
+                        >
+                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z"/>
+                          </svg>
+                        </button>
+                      </div>
+                      <p className="text-gray-300 text-sm mb-4 line-clamp-2">{project.description}</p>
+                      
+                      <div className="flex gap-3">
+                        {project.stats.map((stat, i) => (
+                          <div key={i} className="flex-1 bg-gray-800/50 rounded-lg p-2 text-center border border-gray-700">
+                            <div className="text-yellow-400 font-bold text-lg">{stat.value}</div>
                             <div className="text-xs text-gray-400">{stat.label}</div>
                           </div>
                         ))}
                       </div>
+                      
+                      <Link
+                        to={`/projects/${project.slug}`}
+                        className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-yellow-400 text-black font-medium rounded-full hover:bg-yellow-300 transition-colors text-sm"
+                      >
+                        View Case Study
+                        <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24">
+                          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5L21 12M21 12L14 19M21 12H3"/>
+                        </svg>
+                      </Link>
                     </div>
-                    
-                    <Link
-                      to={`/projects/${project.slug}`}
-                      className="mt-4 inline-flex items-center justify-center gap-1 px-3 py-1.5 bg-yellow-400 text-black font-medium rounded-full hover:bg-yellow-300 transition-colors text-xs w-full"
-                    >
-                      View Details
-                      <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5L21 12M21 12L14 19M21 12H3"/>
-                      </svg>
-                    </Link>
-                  </div>
+                  </motion.div>
                 </div>
               </motion.div>
             ))}
           </div>
-        )}
+        </div>
       </div>
 
       {/* Project Modal */}
@@ -1525,107 +2156,12 @@ export default function ProjectsSection() {
             onClick={() => setActiveProject(null)}
           >
             <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
-            
-            <motion.div
-              className="relative max-w-4xl w-full bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden shadow-2xl border border-gray-700 max-h-[90vh] flex flex-col"
-              initial={{ scale: 0.9, y: 40 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.9, y: 40 }}
-              onClick={e => e.stopPropagation()}
-            >
-              <button
-                className="absolute top-4 right-4 z-10 p-2 bg-gray-700 rounded-full hover:bg-yellow-400 hover:text-black transition-colors"
-                onClick={() => setActiveProject(null)}
-                aria-label="Close"
-              >
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24">
-                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6L18 18"/>
-                </svg>
-              </button>
-              
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src={projects[activeProject].image}
-                  alt={projects[activeProject].title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                <div className="absolute bottom-6 left-6">
-                  <h2 className="text-3xl font-bold text-white">{projects[activeProject].title}</h2>
-                  <p className="text-yellow-400">{projects[activeProject].subtitle}</p>
-                </div>
-              </div>
-              
-              <div className="p-6 overflow-y-auto flex-1">
-                <div className="mb-6">
-                  <h3 className="text-lg font-semibold text-white mb-2">Project Overview</h3>
-                  <p className="text-gray-300">{projects[activeProject].description}</p>
-                </div>
-                
-                <div className="mb-6">
-                  <h3 className="text-lg font-semibold text-white mb-3">Key Statistics</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {projects[activeProject].stats.map((stat, i) => (
-                      <div key={i} className="bg-gray-700/50 rounded-lg p-3 text-center border border-gray-600">
-                        <div className="text-yellow-400 font-bold text-xl mb-1">{stat.value}</div>
-                        <div className="text-sm text-gray-300">{stat.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                
-                <div className="mb-6">
-                  <h3 className="text-lg font-semibold text-white mb-2">Our Approach</h3>
-                  <p className="text-gray-300">
-                    For the {projects[activeProject].title}, our team implemented a comprehensive traffic management plan that included:
-                  </p>
-                  <ul className="mt-3 space-y-2 text-gray-300">
-                    <li className="flex items-start gap-2">
-                      <svg className="w-5 h-5 text-yellow-400 flex-shrink-0" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13L9 17L19 7"/>
-                      </svg>
-                      <span>Customized traffic routing and signage</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <svg className="w-5 h-5 text-yellow-400 flex-shrink-0" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13L9 17L19 7"/>
-                      </svg>
-                      <span>Coordinated road closures and detours</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <svg className="w-5 h-5 text-yellow-400 flex-shrink-0" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13L9 17L19 7"/>
-                      </svg>
-                      <span>24/7 monitoring and rapid response teams</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <svg className="w-5 h-5 text-yellow-400 flex-shrink-0" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13L9 17L19 7"/>
-                      </svg>
-                      <span>Emergency vehicle access planning</span>
-                    </li>
-                  </ul>
-                </div>
-                
-                <div className="flex flex-wrap gap-4 mt-8">
-                  <Link
-                    to={`/projects/${projects[activeProject].slug}`}
-                    className="px-6 py-3 bg-yellow-400 text-black font-medium rounded-full hover:bg-yellow-300 transition-colors flex items-center gap-2"
-                  >
-                    View Full Case Study
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24">
-                      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5L21 12M21 12L14 19M21 12H3"/>
-                    </svg>
-                  </Link>
-                  <button className="px-6 py-3 bg-gray-700 text-white font-medium rounded-full hover:bg-gray-600 transition-colors">
-                    Contact Our Team
-                  </button>
-                </div>
-              </div>
-            </motion.div>
+            <ProjectModal project={projects[activeProject]} onClose={() => setActiveProject(null)} />
           </motion.div>
         )}
       </AnimatePresence>
     </section>
   );
-}
+};
+
+export default ProjectsSection;
