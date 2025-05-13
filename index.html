@@ -1,10 +1,155 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="TM Matters delivers expert traffic management solutions in Christchurch, New Zealand, including smart traffic systems, professional training, event consultancy, traffic engineering, road construction, and TMP design services." />
+    <meta name="keywords" content="traffic management, TM Matters, traffic control, traffic safety, traffic training, event traffic planning, traffic engineering, road construction, TMP design, traffic signage, Christchurch traffic solutions, New Zealand traffic management" />
+    <meta name="author" content="TM Matters" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph (OG) Tags for Social Media -->
+    <meta property="og:title" content="TM Matters - Expert Traffic Management in Christchurch, NZ" />
+    <meta property="og:description" content="TM Matters provides innovative traffic management, training, consultancy, engineering, construction, and TMP design services for safer roads in Christchurch, New Zealand." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tmmatters.co.nz/" />
+    <meta property="og:image" content="https://tmmatters.co.nz/assets/og-image.webp" />
+    <meta property="og:image:alt" content="TM Matters Traffic Management Services in Christchurch" />
+    <meta property="og:site_name" content="TM Matters" />
+    <meta property="og:locale" content="en_NZ" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TM Matters - Traffic Management Solutions in Christchurch" />
+    <meta name="twitter:description" content="TM Matters offers expert traffic management, training, consultancy, engineering, construction, and TMP design in Christchurch, New Zealand." />
+    <meta name="twitter:image" content="https://tmmatters.co.nz/assets/og-image.webp" />
+    <meta name="twitter:image:alt" content="TM Matters Traffic Management Services" />
+    <meta name="twitter:site" content="@TMMattersNZ" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://tmmatters.co.nz/" />
+
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/assets/Logo-11.png" as="image" />
+    <link rel="preload" href="/assets/og-image.webp" as="image" />
+
+    <!-- DNS Prefetch for Faster Resource Loading -->
+    <link rel="dns-prefetch" href="https://tmmatters.co.nz" />
+    <link rel="dns-prefetch" href="https://www.google.com" />
+    <link rel="dns-prefetch" href="https://www.linkedin.com" />
+    <link rel="dns-prefetch" href="https://www.facebook.com" />
+
+    <!-- Structured Data (JSON-LD) for Organization -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "TM Matters",
+        "url": "https://tmmatters.co.nz/",
+        "logo": "https://tmmatters.co.nz/assets/Logo-11.png",
+        "description": "TM Matters specializes in traffic management solutions in Christchurch, New Zealand, offering smart traffic systems, professional training, event consultancy, traffic engineering, road construction, and TMP design.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Unit 7, 2 William Lewis Drive",
+          "addressLocality": "Sockburn, Christchurch",
+          "postalCode": "8042",
+          "addressRegion": "Canterbury",
+          "addressCountry": "NZ"
+        },
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "contactType": "Customer Service (Non-Emergency)",
+            "telephone": "+64800866247",
+            "email": "here4you@tmmatters.co.nz"
+          },
+          {
+            "@type": "ContactPoint",
+            "contactType": "Emergency On-Call Service",
+            "telephone": "+64800866627"
+          }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/tmmatters",
+          "https://www.linkedin.com/company/traffic-management-matters"
+        ],
+        "keywords": [
+          "traffic management",
+          "traffic safety",
+          "traffic training",
+          "traffic consultancy",
+          "traffic engineering",
+          "road construction",
+          "TMP design",
+          "Christchurch",
+          "New Zealand"
+        ]
+      }
+    </script>
+
+    <!-- Structured Data (JSON-LD) for Breadcrumbs -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://tmmatters.co.nz/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://tmmatters.co.nz/#services"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Contact Us",
+            "item": "https://tmmatters.co.nz/contactus"
+          }
+        ]
+      }
+    </script>
+
+    <!-- Structured Data (JSON-LD) for Local Business -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "TM Matters",
+        "image": "https://tmmatters.co.nz/assets/Logo-11.png",
+        "telephone": "+64800866247",
+        "email": "here4you@tmmatters.co.nz",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Unit 7, 2 William Lewis Drive",
+          "addressLocality": "Sockburn, Christchurch",
+          "postalCode": "8042",
+          "addressRegion": "Canterbury",
+          "addressCountry": "NZ"
+        },
+        "url": "https://tmmatters.co.nz/",
+        "openingHours": "Mo-Fr 08:00-17:00",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -43.542845,
+          "longitude": 172.553717
+        },
+        "sameAs": [
+          "https://www.facebook.com/tmmatters",
+          "https://www.linkedin.com/company/traffic-management-matters"
+        ]
+      }
+    </script>
+
+    <title>TM Matters - Traffic Management Solutions in Christchurch, NZ</title>
   </head>
   <body>
     <div id="root"></div>
