@@ -48,7 +48,7 @@ const ContactUsForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleFileChange = (e) => {
@@ -56,13 +56,32 @@ const ContactUsForm = () => {
   };
 
   const handleDateChange = (date) => {
-    setFormData({ ...formData, meetingDateTime: date });
+    setFormData((prev) => ({ ...prev, meetingDateTime: date }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Basic validation
+    if (!formData.name || !formData.email || !formData.message) {
+      toast.error('Please fill in all required fields.');
+      return;
+    }
+
     setIsLoading(true);
     const toastId = toast.loading('Sending your message...');
+
+    // Timeout to prevent infinite loading
+    const timeoutId = setTimeout(() => {
+      setIsLoading(false);
+      toast.update(toastId, {
+        render: 'Request timed out. Please try again.',
+        type: 'error',
+        isLoading: false,
+        autoClose: 5000,
+        closeButton: true,
+      });
+    }, 10000);
 
     const emailData = {
       from_name: formData.name,
@@ -89,6 +108,7 @@ const ContactUsForm = () => {
             )
             .then(
               () => {
+                clearTimeout(timeoutId);
                 toast.update(toastId, {
                   render: "Message Sent! We'll get back to you soon.",
                   type: 'success',
@@ -107,6 +127,7 @@ const ContactUsForm = () => {
                 setIsLoading(false);
               },
               (error) => {
+                clearTimeout(timeoutId);
                 toast.update(toastId, {
                   render: 'Error sending message to CC recipient. Please try again.',
                   type: 'error',
@@ -120,6 +141,7 @@ const ContactUsForm = () => {
             );
         },
         (error) => {
+          clearTimeout(timeoutId);
           toast.update(toastId, {
             render: 'Error sending message. Please try again.',
             type: 'error',
@@ -205,7 +227,7 @@ const ContactUsForm = () => {
             whileHover={{ y: -5, boxShadow: "0 12px 48px rgba(251, 191, 36, 0.3)" }}
           >
             <motion.div
-              className="absolute inset-0 border-2 border-amber-400 rounded-xl opacity-0 group-hover:opacity-80"
+              className="absolute inset-0 border-2 border-amber-400 rounded-xl opacity-0 group-hover:opacity-80 pointer-events-none"
               animate={{ opacity: [0, 0.8, 0] }}
               transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
               style={{ boxShadow: "0 0 40px 10px rgba(251, 191, 36, 0.5)" }}
@@ -293,7 +315,7 @@ const ContactUsForm = () => {
             whileHover={{ y: -5, boxShadow: "0 12px 48px rgba(251, 191, 36, 0.3)" }}
           >
             <motion.div
-              className="absolute inset-0 border-2 border-amber-400 rounded-xl opacity-0 group-hover:opacity-80"
+              className="absolute inset-0 border-2 border-amber-400 rounded-xl opacity-0 group-hover:opacity-80 pointer-events-none"
               animate={{ opacity: [0, 0.8, 0] }}
               transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
               style={{ boxShadow: "0 0 40px 10px rgba(251, 191, 36, 0.5)" }}
@@ -304,69 +326,98 @@ const ContactUsForm = () => {
                 Contact Us
               </h2>
             </div>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
               <motion.div variants={inputVariants} className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-medium text-gray-300 mb-1">Name *</label>
+                  <label htmlFor="name" className="block text-xs font-medium text-gray-300 mb-1">
+                    Name *
+                  </label>
                   <input
+                    id="name"
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                     required
                     disabled={isLoading}
+                    aria-required="true"
+                    aria-label="Your name"
                     className="w-full px-3 py-2 text-xs border border-gray-700 rounded-md bg-gray-800 text-gray-200 focus:ring-1 focus:ring-amber-500 focus:border-amber-500 transition-all disabled:opacity-50 hover:border-amber-400"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-gray-300 mb-1">Email *</label>
+                  <label htmlFor="email" className="block text-xs font-medium text-gray-300 mb-1">
+                    Email *
+                  </label>
                   <input
+                    id="email"
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                     required
                     disabled={isLoading}
+                    aria-required="true"
+                    aria-label="Your email"
                     className="w-full px-3 py-2 text-xs border border-gray-700 rounded-md bg-gray-800 text-gray-200 focus:ring-1 focus:ring-amber-500 focus:border-amber-500 transition-all disabled:opacity-50 hover:border-amber-400"
                   />
                 </div>
               </motion.div>
               <motion.div variants={inputVariants}>
-                <label className="block text-xs font-medium text-gray-300 mb-1">Phone</label>
+                <label htmlFor="phone" className="block text-xs font-medium text-gray-300 mb-1">
+                  Phone
+                </label>
                 <input
+                  id="phone"
                   type="tel"
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
                   disabled={isLoading}
+                  aria-label="Your phone number"
                   className="w-full px-3 py-2 text-xs border border-gray-700 rounded-md bg-gray-800 text-gray-200 focus:ring-1 focus:ring-amber-500 focus:border-amber-500 transition-all disabled:opacity-50 hover:border-amber-400"
                 />
               </motion.div>
               <motion.div variants={inputVariants}>
-                <label className="block text-xs font-medium text-gray-300 mb-1">Message *</label>
+                <label htmlFor="message" className="block text-xs font-medium text-gray-300 mb-1">
+                  Message *
+                </label>
                 <textarea
+                  id="message"
                   name="message"
                   rows="3"
                   value={formData.message}
                   onChange={handleChange}
                   required
                   disabled={isLoading}
+                  aria-required="true"
+                  aria-label="Your message"
                   className="w-full px-3 py-2 text-xs border border-gray-700 rounded-md bg-gray-800 text-gray-200 focus:ring-1 focus:ring-amber-500 focus:border-amber-500 transition-all disabled:opacity-50 hover:border-amber-400"
                 />
               </motion.div>
               <motion.div variants={inputVariants}>
-                <label className="block text-xs font-medium text-gray-300 mb-1">Attach File</label>
+                <label htmlFor="file" className="block text-xs font-medium text-gray-300 mb-1">
+                  Attach File
+                </label>
                 <input
+                  id="file"
                   type="file"
                   onChange={handleFileChange}
                   disabled={isLoading}
+                  aria-label="Attach a file"
                   className="w-full px-3 py-2 text-xs border border-gray-700 rounded-md bg-gray-800 text-gray-200 focus:ring-1 focus:ring-amber-500 focus:border-amber-500 transition-all disabled:opacity-50 hover:border-amber-400"
                 />
+                <p className="text-xs text-gray-400 mt-1">
+                  Note: Files are not sent directly. We’ll contact you to retrieve the file.
+                </p>
               </motion.div>
               <motion.div variants={inputVariants} className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-medium text-gray-300 mb-1">Meeting Time</label>
+                  <label htmlFor="meeting" className="block text-xs font-medium text-gray-300 mb-1">
+                    Meeting Time
+                  </label>
                   <DatePicker
+                    id="meeting"
                     selected={formData.meetingDateTime}
                     onChange={handleDateChange}
                     showTimeSelect
@@ -374,19 +425,20 @@ const ContactUsForm = () => {
                     timeIntervals={15}
                     dateFormat="MMM d, h:mm aa"
                     minDate={new Date()}
-                    disabled={isLoading}
-                    className="w-full px-3 py-2 text-xs border border-gray-700 rounded-md bg-gray-800 text-gray-200 focus:ring-1 focus:ring-amber-500 focus:border-amber-500 transition-all disabled:opacity-50 hover:border-amber-400"
+                    className="w-full px-3 py-2 text-xs border border-gray-700 rounded-md bg-gray-800 text-gray-200 focus:ring-1 focus:ring-amber-500 focus:border-amber-500 transition-all hover:border-amber-400"
                     placeholderText="Select time"
+                    aria-label="Select meeting date and time"
                   />
                 </div>
                 <motion.div className="flex items-end">
                   <motion.button
                     type="submit"
-                    className="w-full px-3 py-2 text-xs font-medium rounded-md text-black bg-amber-400 hover:bg-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 disabled:opacity-50 transition-all"
+                    className="w Cyclone full px-3 py-2 text-xs font-medium rounded-md text-black bg-amber-400 hover:bg-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 disabled:opacity-50 transition-all"
                     variants={buttonVariants}
                     whileHover="hover"
                     whileTap="tap"
                     disabled={isLoading}
+                    aria-label="Send message"
                   >
                     {isLoading ? 'Sending...' : 'Send Message'}
                   </motion.button>

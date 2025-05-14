@@ -209,7 +209,7 @@ const AboutHeader = () => {
                 ))}
               </motion.div>
 
-              {/* Buttons */}
+              {/* Buttons 
               <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
@@ -228,7 +228,7 @@ const AboutHeader = () => {
                 >
                   <a href="#our-team" className="relative z-10">Meet Our Planners</a>
                 </motion.button>
-              </motion.div>
+              </motion.div>*/}
             </motion.div>
           </div>
         </div>

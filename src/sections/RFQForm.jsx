@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
+import { Notify } from "notiflix/build/notiflix-notify-aio"; // Import Notiflix Notify
 
 const RFQForm = () => {
   const [formData, setFormData] = useState({
@@ -23,6 +24,23 @@ const RFQForm = () => {
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState("");
 
+  // Initialize Notiflix (optional: customize settings)
+  Notify.init({
+    width: "300px",
+    position: "center-top",
+    timeout: 3000,
+    fontSize: "14px",
+    cssAnimationStyle: "from-top",
+    success: {
+      background: "#f59e0b", // Amber color to match your theme
+      textColor: "#fff",
+    },
+    failure: {
+      background: "#ef4444",
+      textColor: "#fff",
+    },
+  });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -36,8 +54,7 @@ const RFQForm = () => {
     e.preventDefault();
     const emailData = {
       ...formData,
-      to_email: "Nikita@tmmatters.co.nz"||"godaraandarya@gmail.com",
-      
+      to_email: "Nikita@tmmatters.co.nz" || "godaraandarya@gmail.com",
       fileNote: file ? `A file (${file.name}) was attached. Please contact the sender for the file.` : "No file attached.",
     };
 
@@ -45,7 +62,9 @@ const RFQForm = () => {
       .send("service_22pf5me", "template_83idybm", emailData, "uDc6Pncwq_Cz2bnfh")
       .then(
         (result) => {
-          setMessage("RFQ Sent! We'll respond soon.");
+          // Show Notiflix success notification
+          Notify.success("RFQ Sent! We'll respond soon.");
+          setMessage("RFQ Sent! We'll respond soon."); // Optional: keep for UI
           console.log(result.text);
           setFormData({
             worksiteContractor: "",
@@ -66,13 +85,15 @@ const RFQForm = () => {
           setFile(null);
         },
         (error) => {
-          setMessage("Error sending RFQ. Try again.");
+          // Show Notiflix failure notification
+          Notify.failure("Error sending RFQ. Try again.");
+          setMessage("Error sending RFQ. Try again."); // Optional: keep for UI
           console.error(error.text);
         }
       );
   };
 
-  // Animation variants
+  // Animation variants (unchanged)
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -87,7 +108,7 @@ const RFQForm = () => {
   };
 
   const buttonVariants = {
-    hover: { 
+    hover: {
       scale: 1.03,
       boxShadow: "0 0 15px rgba(245, 158, 11, 0.5)",
       transition: { duration: 0.3 },
@@ -103,7 +124,7 @@ const RFQForm = () => {
         initial="hidden"
         animate="visible"
       >
-        {/* Header with traffic light theme */}
+        {/* Header with traffic light theme (unchanged) */}
         <div className="bg-gray-900 p-4 border-b border-amber-500/30 relative">
           <div className="flex items-center justify-center space-x-2 mb-1">
             {["red", "yellow", "green"].map((color) => (
@@ -138,6 +159,7 @@ const RFQForm = () => {
           </motion.p>
         </div>
 
+        {/* Optional: Keep message UI */}
         {message && (
           <motion.div
             className={`mx-4 mt-3 p-2 rounded-lg text-center font-medium ${
@@ -153,7 +175,7 @@ const RFQForm = () => {
 
         <form onSubmit={handleSubmit} className="p-4 sm:p-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {/* Column 1 */}
+            {/* Column 1 (unchanged) */}
             <div className="space-y-3">
               <motion.div variants={itemVariants}>
                 <label className="block text-sm font-medium text-gray-300">Worksite Contractor *</label>
@@ -166,7 +188,6 @@ const RFQForm = () => {
                   className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 text-gray-200 placeholder-gray-400 text-sm"
                 />
               </motion.div>
-
               <motion.div variants={itemVariants}>
                 <label className="block text-sm font-medium text-gray-300">Principal/Owner</label>
                 <input
@@ -177,7 +198,6 @@ const RFQForm = () => {
                   className="w-full px-3 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 text-gray-200 placeholder-gray-400 text-sm"
                 />
               </motion.div>
-
               <motion.div variants={itemVariants}>
                 <label className="block text-sm font-medium text-gray-300">Location of Works</label>
                 <input
@@ -190,7 +210,7 @@ const RFQForm = () => {
               </motion.div>
             </div>
 
-            {/* Column 2 */}
+            {/* Column 2 (unchanged) */}
             <div className="space-y-3">
               <motion.div variants={itemVariants}>
                 <label className="block text-sm font-medium text-gray-300">Start Date/Time *</label>
@@ -203,7 +223,6 @@ const RFQForm = () => {
                   className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 text-gray-200 text-sm"
                 />
               </motion.div>
-
               <motion.div variants={itemVariants}>
                 <label className="block text-sm font-medium text-gray-300">End Date/Time *</label>
                 <input
@@ -215,7 +234,6 @@ const RFQForm = () => {
                   className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 text-gray-200 text-sm"
                 />
               </motion.div>
-
               <motion.div variants={itemVariants}>
                 <label className="block text-sm font-medium text-gray-300">TM Requirement</label>
                 <select
@@ -234,7 +252,7 @@ const RFQForm = () => {
               </motion.div>
             </div>
 
-            {/* Column 3 */}
+            {/* Column 3 (unchanged) */}
             <div className="space-y-3">
               <motion.div variants={itemVariants}>
                 <label className="block text-sm font-medium text-gray-300">Services Needed</label>
@@ -272,7 +290,7 @@ const RFQForm = () => {
             </div>
           </div>
 
-          {/* Full width fields */}
+          {/* Full width fields (unchanged) */}
           <div className="mt-4 space-y-3">
             <motion.div variants={itemVariants}>
               <label className="block text-sm font-medium text-gray-300">Worksite Details</label>
@@ -284,7 +302,6 @@ const RFQForm = () => {
                 className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 text-gray-200 placeholder-gray-400 text-sm"
               />
             </motion.div>
-
             <motion.div variants={itemVariants}>
               <label className="block text-sm font-medium text-gray-300">Key Details</label>
               <textarea
@@ -295,7 +312,6 @@ const RFQForm = () => {
                 className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 text-gray-200 placeholder-gray-400 text-sm"
               />
             </motion.div>
-
             <motion.div variants={itemVariants}>
               <label className="block text-sm font-medium text-gray-300">Attachments</label>
               <div className="flex items-center space-x-3">
@@ -307,7 +323,6 @@ const RFQForm = () => {
                 <span className="text-xs text-gray-500">Or email to: tmp@tmmatters.co.nz</span>
               </div>
             </motion.div>
-
             <motion.div variants={itemVariants}>
               <label className="block text-sm font-medium text-gray-300">Your Email *</label>
               <input
