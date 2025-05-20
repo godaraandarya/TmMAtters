@@ -3,6 +3,28 @@ import { motion } from 'framer-motion';
 
 const services = [
   {
+    title: "TMP DESIGN",
+    icon: (
+      <motion.svg
+        className="w-12 h-12 text-neon-purple"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        initial={{ scale: 1, opacity: 0.8 }}
+        animate={{ scale: [1, 1.15, 1], opacity: [0.8, 1, 0.8] }}
+        transition={{ repeat: Infinity, duration: 1.7, ease: "easeInOut" }}
+      >
+        <rect x="5" y="5" width="14" height="14" rx="3" stroke="currentColor" strokeWidth="2" />
+        <path d="M9 9h6v6H9z" fill="currentColor" />
+        <motion.circle cx="12" cy="12" r="1.5" fill="black" animate={{ scale: [1, 1.4, 1] }} transition={{ repeat: Infinity, duration: 1.5 }} />
+      </motion.svg>
+    ),
+    description:
+      "Expert TMP Design Services in New Zealand | TMMatters",
+    detailedDescription:
+      "We provide complete on-site support, including the setup of signage, barriers, detours, lane closures, and real-time traffic control using stop/slow bat operators. Our services are available day or night, with rapid deployment and full compliance with all safety and regulatory standards.At Traffic Management Matters, safety isn’t just a priority — it’s our responsibility.",
+    gradient: "from-neon-purple to-indigo-500",
+  },{
     title: "Traffic Management",
     icon: (
       <motion.svg
@@ -21,9 +43,9 @@ const services = [
       </motion.svg>
     ),
     description:
-      "Cutting-edge solutions for seamless traffic flow, integrating smart systems, real-time monitoring, and advanced planning.",
+      "At Traffic Management Matters, we specialize in delivering professional, reliable on-site traffic management services ",
     detailedDescription:
-      "At TMMatters safety takes precedence. Drawing on extensive experience and industry best practices, we develop and implement effective traffic management strategies that minimize disruptions and mitigate risks. Our diverse range of solutions includes traffic control and signage, road closures, event management, and more.What sets us apart is our unwavering commitment to affordability. We firmly believe that high-quality traffic management services should be accessible to businesses of all sizes. With competitive pricing, we ensure that you can benefit from our expertise without straining your budget..",
+      " Whether you're managing a roadwork site, construction project, special event, or emergency response, our certified traffic controllers are equipped to handle it with precision and care.We provide complete on-site support, including the setup of signage, barriers, detours, lane closures, and real-time traffic control using stop/slow bat operators. Our services are available day or night, with rapid deployment and full compliance with all safety and regulatory standards. At Traffic Management Matters, safety isn’t just a priority — it’s our responsibility.",
     gradient: "from-neon-orange to-pink-500",
   },
   {
@@ -50,7 +72,7 @@ const services = [
     gradient: "from-neon-blue to-purple-500",
   },
   {
-    title: "Events & Consultancy",
+    title: "Events & Consultancy ",
     icon: (
       <motion.svg
         className="w-12 h-12 text-neon-green"
@@ -67,10 +89,10 @@ const services = [
       </motion.svg>
     ),
     description:
-      "Specialized consultancy for traffic events, road safety, and large-scale event management with precision and care.",
+      "We provide expert traffic management for events like marathons, races, and sports gatherings — ensuring safe, smooth movement for participants, spectators, and the public.",
     detailedDescription:
-      "We provide expert consultancy for managing traffic during large-scale events, including concerts, sports events, and public gatherings. Our services include detailed traffic planning, safety assessments, and real-time coordination to ensure smooth operations and enhanced safety for all attendees and road users.",
-    gradient: "from-neon-green to-teal-500",
+    "At Traffic Management Matters, we provide professional and dependable event traffic management services to support the safe, smooth, and efficient movement of vehicles and pedestrians during events of all types and scales.From marathons, fun runs, and cycling races to stadium sports events, festivals, parades, and community celebrations, our experienced team handles every aspect of traffic and crowd control. We design tailored traffic management plans, install appropriate signage and barriers, and deploy certified traffic controllers to manage road closures, detours, parking, and pedestrian flow.We work closely with event organizers, local councils, and emergency services to ensure your event complies with all regulations while minimizing disruption to the public. Whether it’s a city-wide race or a local community gathering, Traffic Management Matters is your trusted partner in delivering safe and successful events.",
+     gradient: "from-neon-green to-teal-500",
   },
   {
     title: "Engineering",
@@ -89,56 +111,54 @@ const services = [
       </motion.svg>
     ),
     description:
-      "Your Premier Engineering Partner in New Zealand.",
+      "Our engineering team provides expert support for traffic-related resource consents across New Zealand, including Traffic Impact Assessments (TIAs) and compliance with council and NZTA requirements",
     detailedDescription:
       "At TMMatters, we pride ourselves on being a leading provider of top-notch  engineering services in New Zealand. With a commitment to excellence, safety, and innovation, we offer a comprehensive range of solutions designed to optimize road traffic flow and ensure the safety of all road users.",
     gradient: "from-neon-pink to-red-500",
   },
   {
-    title: "Construction",
+    title: "Equipment Hire",
     icon: (
       <motion.svg
-        className="w-12 h-12 text-neon-yellow"
-        fill="none"
-        viewBox="0 0 24 24"
+      className="w-12 h-12 text-neon-yellow"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      initial={{ y: 0, scale: 1 }}
+      animate={{ y: [0, 6, 0], scale: [1, 1.25, 1] }}
+      transition={{ repeat: Infinity, duration: 2.8, ease: "easeInOut" }}
+    >
+      <path
         stroke="currentColor"
-        initial={{ y: 0, scale: 1 }}
-        animate={{ y: [0, 6, 0], scale: [1, 1.25, 1] }}
-        transition={{ repeat: Infinity, duration: 2.8, ease: "easeInOut" }}
-      >
-        <rect x="3" y="13" width="18" height="7" rx="2" stroke="currentColor" strokeWidth="2" />
-        <path d="M7 13V7a5 5 0 0110 0v6" stroke="currentColor" strokeWidth="2" />
-      </motion.svg>
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 4L6 20h12L12 4z"
+      />
+      <path
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 20h12"
+      />
+      <path
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeDasharray="2 2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M8 14h8"
+      />
+    </motion.svg>
     ),
     description:
-      "Top-tier construction for roads, highways, and traffic facilities, ensuring durability and efficiency.",
+      "We supply and install traffic management equipment-VMS boards, arrow boards, barriers, signage-ensuring safe, compliant traffic control for projects and events across New Zealand.",
     detailedDescription:
-      "Our construction services deliver high-quality roads, highways, and traffic management facilities built to withstand heavy use and environmental challenges. We employ sustainable materials and advanced construction techniques to ensure long-lasting infrastructure that meets rigorous safety and performance standards.",
+      "At Traffic Management Matters, we supply and set up a full range of traffic management equipment, including signage, cones, temporary traffic lights, VMS boards, TMA, and truck arrow boards for hire. Our team ensures all equipment is installed to meet New Zealand's safety standards, providing efficient, compliant, and reliable solutions for any project or event.",
     gradient: "from-neon-yellow to-orange-500",
   },
-  {
-    title: "TMP DESIGN",
-    icon: (
-      <motion.svg
-        className="w-12 h-12 text-neon-purple"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        initial={{ scale: 1, opacity: 0.8 }}
-        animate={{ scale: [1, 1.15, 1], opacity: [0.8, 1, 0.8] }}
-        transition={{ repeat: Infinity, duration: 1.7, ease: "easeInOut" }}
-      >
-        <rect x="5" y="5" width="14" height="14" rx="3" stroke="currentColor" strokeWidth="2" />
-        <path d="M9 9h6v6H9z" fill="currentColor" />
-        <motion.circle cx="12" cy="12" r="1.5" fill="black" animate={{ scale: [1, 1.4, 1] }} transition={{ repeat: Infinity, duration: 1.5 }} />
-      </motion.svg>
-    ),
-    description:
-      "Expert TMP Design Services in New Zealand | TMMatters",
-    detailedDescription:
-      "Discover the comprehensive TMP design solutions provided by TMMatters, your trusted partner for professional traffic management services in New Zealand. Our mission is to optimize traffic flow and prioritize safety for all road users, offering tailored solutions that meet your specific needs. At TMMatters, we understand the importance of efficient traffic management. Our experienced professionals are well-versed in industry standards and regulations, ensuring compliance and minimizing disruptions. We provide a range of TMP design services, including traffic control plans, road signage layouts, and construction traffic management strategies.With our expertise, we strive to enhance safety and streamline traffic conditions on New Zealand roads. Our meticulous TMP designs take into account various factors, such as traffic volume, road infrastructure, and project requirements. We work closely with clients to understand their unique challenges and deliver effective solutions that align with their objectives.",
-    gradient: "from-neon-purple to-indigo-500",
-  },
+
 ];
 
 const cardVariants = {
@@ -344,48 +364,56 @@ const ServicesSection = () => {
 
       {/* Popup for service details */}
       {selectedService && (
-        <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={handleClosePopup}
-        >
-          <motion.div
-            className="relative bg-gradient-to-br from-gray-800 to-black rounded-2xl p-8 max-w-lg w-full mx-4 text-white shadow-2xl border border-white/10"
-            variants={popupVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            onClick={(e) => e.stopPropagation()}
-            role="dialog"
-            aria-labelledby="popup-title"
-            aria-describedby="popup-description"
-          >
-            <button
-              className="absolute top-4 right-4 text-gray-300 hover:text-white transition-colors"
-              onClick={handleClosePopup}
-              aria-label="Close popup"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            <div className="flex items-center justify-center mb-6">
-              {selectedService.icon}
-            </div>
-            <h3 id="popup-title" className="text-3xl font-bold text-center mb-4 text-yellow-300">
-              {selectedService.title}
-            </h3>
-            <p id="popup-description" className="text-gray-200 text-lg mb-4">
-              {selectedService.description}
-            </p>
-            <p className="text-gray-300 text-base leading-relaxed">
-              {selectedService.detailedDescription}
-            </p>
-          </motion.div>
-        </motion.div>
-      )}
+  <motion.div
+    className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    onClick={handleClosePopup}
+  >
+    <motion.div
+      className="relative bg-gradient-to-br from-gray-800 to-black rounded-2xl p-8 max-w-lg w-full mx-4 text-white shadow-2xl border border-white/10 max-h-[90vh] overflow-hidden"
+      variants={popupVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      onClick={(e) => e.stopPropagation()}
+      role="dialog"
+      aria-labelledby="popup-title"
+      aria-describedby="popup-description"
+    >
+      {/* Close Button */}
+      <button
+        className="absolute top-4 right-4 text-gray-300 hover:text-white transition-colors"
+        onClick={handleClosePopup}
+        aria-label="Close popup"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      {/* Fixed Header */}
+      <div className="flex items-center justify-center mb-4">
+        {selectedService.icon}
+      </div>
+      <h3 id="popup-title" className="text-3xl font-bold text-center mb-2 text-yellow-300">
+        {selectedService.title}
+      </h3>
+      <p id="popup-description" className="text-gray-200 text-lg text-center mb-4">
+        {selectedService.description}
+      </p>
+
+      {/* Scrollable Body */}
+      <div className="overflow-y-auto pr-2" style={{ maxHeight: "50vh" }}>
+        <p className="text-gray-300 text-base leading-relaxed">
+          {selectedService.detailedDescription}
+        </p>
+      </div>
+    </motion.div>
+  </motion.div>
+)}
+
     </section>
   );
 };

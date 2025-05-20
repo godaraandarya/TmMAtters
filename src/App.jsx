@@ -21,6 +21,7 @@ const CheckoutPage = lazy(() => import('./CheckoutPage'));
 const Footer = lazy(() => import('./sections/Footer'));
 const AboutHeader = lazy(() => import('./sections/AboutHeader'));
 const TeamSection = lazy(() => import('./sections/TeamSection'));
+// const ProjectSection =lazy(()=>import())
 
 function App() {
   const location = useLocation();
@@ -333,7 +334,7 @@ function App() {
                 <Hero />
                 <AboutHeader />
                 <ServicesSection />
-                <ProjectsSection />
+                {/* <ProjectsSection /> */}
                 <TeamSection />
                 <ContactUsForm />
                 <PhotoLibrarySection />

@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import nighttimeTrafficFlow from "../assets/20220915_144112-_1_-min-scaled.webp";
 import urbanIntersectionUpgrade from "../assets/20221213_224042-min-scaled.webp";
 import highwaySafetyMeasures from "../assets/20230121_161350-min-scaled.webp";
-// import seoulNightCityscape from "../assets/beautyful-traffic-seoul-night-cityscape-south-korea-with-motion-blur.jpg";
 import trafficFlowBranding from "../assets/logo-5.png";
 import newYearTrafficControl from "../assets/new-Year.jpeg";
 import smartRoadSensors from "../assets/p3-1-scaled.jpg";
@@ -18,80 +17,78 @@ import cityTrafficOverview from "../assets/pexels-photo-1044329.jpeg";
 import emergencyTrafficResponse from "../assets/pexels-rdne-8782696.jpg";
 
 const photos = [
-  { id: 1, title: "Nighttime Traffic Flow", description: "Implementing smart traffic signals to streamline nighttime traffic in a bustling city center.", image: nighttimeTrafficFlow },
-  { id: 2, title: "Urban Intersection Upgrade", description: "Upgrading a major intersection with IoT sensors for real-time traffic monitoring.", image: urbanIntersectionUpgrade },
-  { id: 3, title: "Highway Safety Measures", description: "Deploying temporary barriers and signage for safe highway construction.", image: highwaySafetyMeasures },
-  // { id: 4, title: "Seoul Night Cityscape", description: "Managing dynamic traffic patterns in Seoul’s vibrant nightscape with advanced control systems.", image: seoulNightCityscape },
-  { id: 5, title: "TrafficFlow Branding", description: "Showcasing our innovative logo at a traffic management expo.", image: trafficFlowBranding },
-  { id: 6, title: "New Year Traffic Control", description: "Coordinating traffic for a massive New Year’s Eve celebration in a metropolitan area.", image: newYearTrafficControl },
-  { id: 7, title: "Smart Road Sensors", description: "Installing cutting-edge sensors to optimize traffic flow in suburban areas.", image: smartRoadSensors },
-  { id: 8, title: "Pedestrian Safety Zone", description: "Creating a pedestrian-friendly zone with temporary barriers and clear signage.", image: pedestrianSafetyZone },
-  { id: 9, title: "Rural Road Safety", description: "Enhancing rural road safety with reflective signage and speed control measures.", image: ruralRoadSafety },
-  { id: 10, title: "Construction Traffic Management", description: "Ensuring smooth traffic flow during a major urban construction project.", image: constructionTrafficManagement },
-  { id: 11, title: "Event Traffic Coordination", description: "Managing traffic for a large outdoor event with thousands of attendees.", image: eventTrafficCoordination },
-  { id: 12, title: "City Traffic Overview", description: "Overseeing traffic patterns in a busy city with real-time analytics.", image: cityTrafficOverview },
-  { id: 13, title: "Emergency Traffic Response", description: "Rapid deployment of traffic control measures during an emergency road situation.", image: emergencyTrafficResponse },
+  { id: 1, title: "Nighttime Traffic Control", description: "Implementing rapid TMP approvals for safe nighttime traffic management in a busy urban area.", image: nighttimeTrafficFlow },
+  { id: 2, title: "Urban Road Closure", description: "Executing professional onsite management for a major road closure with clear signage and detours.", image: urbanIntersectionUpgrade },
+  { id: 3, title: "Highway Safety Compliance", description: "Conducting safe site walkovers and deploying barriers for compliant highway maintenance.", image: highwaySafetyMeasures },
+  { id: 4, title: "TMM Branding", description: "Showcasing Traffic Management Matters’ logo at a New Zealand traffic safety conference.", image: trafficFlowBranding },
+  { id: 5, title: "Festival Traffic Management", description: "Coordinating traffic for a large festival with thousands of attendees, ensuring safety and flow.", image: newYearTrafficControl },
+  { id: 6, title: "Temporary Traffic Setup", description: "Deploying temporary signage and barriers for a construction project with minimal disruption.", image: smartRoadSensors },
+  { id: 7, title: "Pedestrian Safety Measures", description: "Creating a pedestrian-safe zone with compliant barriers and signage for a community event.", image: pedestrianSafetyZone },
+  { id: 8, title: "Rural Traffic Safety", description: "Enhancing rural road safety with reflective signage and speed control measures.", image: ruralRoadSafety },
+  { id: 9, title: "Construction Site Management", description: "Ensuring smooth traffic flow during a major infrastructure project with STMS oversight.", image: constructionTrafficManagement },
+  { id: 10, title: "Event Traffic Coordination", description: "Managing traffic for a large public event with efficient parking and pedestrian pathways.", image: eventTrafficCoordination },
+  { id: 11, title: "City Traffic Oversight", description: "Overseeing urban traffic patterns with real-time monitoring for safety and compliance.", image: cityTrafficOverview },
+  { id: 12, title: "Emergency Traffic Response", description: "Rapidly deploying traffic control measures for an emergency road situation.", image: emergencyTrafficResponse },
 ];
 
-// Projects Array (unchanged)
 const projects = [
   {
-    title: "Selwyn Marathon",
-    slug: "selwyn-marathon",
+    title: "Canterbury Marathon",
+    slug: "canterbury-marathon",
     location: "Lincoln, NZ",
-    subtitle: "Navigating Success: Ensuring Smooth Traffic Flow at the Selwyn Marathon with TMMatters",
-    description: "Managed traffic flow for 5,000+ runners across urban and rural roads in Lincoln, New Zealand. Implemented rolling road closures, spectator zones, and emergency access routes while minimizing disruption to local residents.",
+    subtitle: "Ensuring Safety and Flow: Traffic Management Matters at the Canterbury Marathon",
+    description: "Managed traffic for 5,000+ runners across urban and rural roads in Lincoln, New Zealand. Implemented rolling road closures, pedestrian safety zones, and emergency access routes with rapid TMP approvals.",
     image: "https://images.unsplash.com/photo-1543351611-58f69d7c1781?auto=format&fit=crop&w=1200&q=80",
     stats: [
-      { label: "Participants", value: "5,000", icon: "🏃" },
-      { label: "Traffic Managed", value: "5,000 People", icon: "👥" },
+      { label: "Participants", value: "5,000+", icon: "🏃" },
+      { label: "Roads Managed", value: "20 km", icon: "🛣️" },
       { label: "Event Type", value: "Marathon", icon: "🏅" }
     ],
     challenges: [
       "Coordinating with local residents",
-      "Managing spectator crossings",
-      "Ensuring emergency vehicle access"
+      "Ensuring pedestrian safety",
+      "Maintaining emergency vehicle access"
     ],
     overview: {
-      introduction: "When the vibrant spirit of athleticism meets the challenge of navigating roads, TMMatters stands as the dependable partner ensuring an unforgettable experience at the Selwyn Marathon. As a trusted road traffic management company, TMMatters takes the lead in orchestrating flawless traffic management, allowing participants and spectators to focus solely on the race. In this spotlight, we unveil our role in optimizing traffic flow during the Selwyn Marathon, making it an event where roads pave the way for both triumph and inspiration.",
-      uninterruptedFlow: "At TMMatters, we recognize the Selwyn Marathon as not just a race, but an occasion that bonds the community. Our meticulous traffic management strategies are designed to seamlessly accommodate both runners and local residents, ensuring minimal disruptions. By strategically placing road closures and detours, we harmonize the event’s energy with everyday life.",
-      safety: "Safety is paramount, and our collaboration with the Selwyn Marathon underscores this commitment. We meticulously craft traffic management plans that prioritize the well-being of participants, spectators, and residents alike. Our team coordinates with local authorities, employs highly visible signage, and enforces speed restrictions to cultivate an environment where everyone can thrive harmoniously.",
-      resourceAllocation: "As seasoned professionals, TMMatters understands the importance of optimized resource allocation. Through our comprehensive traffic management solutions, we mitigate congestion, reduce travel time, and enhance the overall event experience. By strategically deploying our expertise, we ensure that traffic doesn’t hinder the participants’ quest for victory.",
-      eventExperience: "The Selwyn Marathon is more than just a race; it’s an event that uplifts the spirits of the community. TMMatters is committed to contributing to this uplifting atmosphere by maintaining fluid traffic flow. Our solutions guarantee that participants can focus on reaching their personal best, spectators can cheer on their loved ones without impediment, and the community can relish in the event’s positive vibes.",
-      partnership: "TMMatters takes immense pride in partnering with the Selwyn Marathon, transforming roads into pathways of achievement. With a holistic approach to traffic management, we usher in a new era where road events are synonymous with efficiency, safety, and seamless coordination. Join us in celebrating the Selwyn Marathon, an event where every stride taken is supported by TMMatters’ dedication to excellence."
+      introduction: "At Traffic Management Matters Limited, we transform challenges into opportunities. The Canterbury Marathon in Lincoln, New Zealand, showcased our expertise in delivering safe and efficient traffic management for a major event, ensuring 5,000+ runners and spectators enjoyed a seamless experience.",
+      uninterruptedFlow: "Our team designed a comprehensive traffic management plan (TMP) with rolling road closures to minimize disruption. By working closely with local councils and NZTA, we secured rapid TMP approvals, keeping the event on schedule while maintaining access for residents.",
+      safety: "Safety is our priority. We deployed highly visible signage, temporary barriers, and skilled STMS operators to create secure runner and spectator zones. Our safe site walkovers ensured compliance with all regulations, protecting everyone involved.",
+      resourceAllocation: "Efficient resource allocation was key. We strategically placed traffic control personnel and equipment to manage congestion and ensure smooth flow, allowing runners to focus on their performance and spectators to enjoy the event.",
+      eventExperience: "The Canterbury Marathon is a community celebration. Our flexible and responsive service ensured that traffic management enhanced the event’s atmosphere, letting participants and attendees focus on the joy of the race.",
+      partnership: "Partnering with the Canterbury Marathon organizers, TMM delivered a traffic management solution that set a new standard for event safety and efficiency. Our commitment to excellence made this marathon a success."
     }
   },
   {
-    title: "Rugby Event 2022",
-    slug: "rugby-event-2022",
+    title: "Christchurch Rugby Festival",
+    slug: "christchurch-rugby-festival",
     location: "Christchurch, NZ",
-    subtitle: "TMMatters Shines Bright at the Rugby Event in Christchurch 2022 – Illuminating Traffic Management Excellence",
-    description: "Designed and executed traffic management for 50,000 spectators at a rugby event in Christchurch, New Zealand. Implemented phased arrival/departure systems, parking solutions, and pedestrian flow optimization.",
+    subtitle: "TMM Excels at the Christchurch Rugby Festival 2022 – Precision Traffic Management",
+    description: "Managed traffic for 50,000 spectators at a rugby festival in Christchurch, New Zealand. Implemented phased arrival/departure systems, parking solutions, and pedestrian safety measures with professional onsite management.",
     image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1200&q=80",
     stats: [
       { label: "Attendees", value: "50,000", icon: "👥" },
-      { label: "Event Type", value: "Sports", icon: "🏉" },
+      { label: "Event Type", value: "Sports Festival", icon: "🏉" },
       { label: "Location", value: "Christchurch", icon: "📍" }
     ],
     challenges: [
-      "Managing peak arrival/departure surges",
-      "Coordinating ride-share services",
-      "Ensuring disabled access"
+      "Handling peak traffic surges",
+      "Coordinating accessible parking",
+      "Ensuring pedestrian safety"
     ],
     overview: {
-      introduction: "Welcome to the dynamic world of traffic management, where every event unfolds as a symphony of order amidst chaos. TMMatters proudly presents a showcase of our expertise at the Rugby Event in Christchurch 2022, where precision meets passion to ensure seamless traffic flow and safety.",
-      trafficManagement: "In the heart of Christchurch, the Rugby Event 2022 promises a spectacle that blends elegance, excitement, and entertainment. At TMMatters, we recognize the pivotal role that impeccable traffic management plays in shaping the overall event experience. As a trusted partner, we seamlessly weave together the intricate threads of traffic planning, control, and coordination, transforming the streets into a canvas of fluidity and safety.",
-      planning: "TMMatters embraces a holistic approach to traffic management, recognizing that every event is unique. Our journey begins with meticulous planning, where we analyze the event’s layout, anticipated footfall, and traffic patterns. Armed with this insight, we craft a tailored traffic management strategy that guarantees minimal disruptions and optimal traffic flow. Come event day, our dedicated team of professionals takes the center stage. Equipped with advanced technology and unwavering dedication, we orchestrate the movement of vehicles and pedestrians with a finesse that rivals the grace of a rugby player. Our real-time monitoring ensures swift adjustments, while our responsive communication network guarantees a unified and coordinated effort that keeps the traffic currents flowing smoothly.",
-      safety: "At TMMatters, safety is our North Star. We understand that a safe event is a successful event, and our traffic management solutions are built upon this principle. From strategically positioned barriers and signs to efficient detour routes, we leave no stone unturned in creating a secure environment for both attendees and participants. Our meticulous attention to detail ensures that every road, every intersection, and every pathway aligns seamlessly to facilitate an unforgettable event experience.",
-      partnership: "At TMMatters, we redefine traffic management, turning it into an art form that enhances events. The Rugby Event in Christchurch 2022 is not merely an event; it’s a testament to our dedication, expertise, and unwavering bond with the city. As we continue to shape the landscape of traffic management, one event at a time, we invite you to join us in our journey towards creating seamless, safe, and unforgettable event experiences."
+      introduction: "The Christchurch Rugby Festival 2022 was a vibrant celebration of sport, and Traffic Management Matters Limited ensured seamless traffic flow for 50,000 attendees. Our expertise in traffic management made this event safe and enjoyable for all.",
+      trafficManagement: "We crafted a tailored TMP to manage high-volume traffic, with phased arrival and departure systems to prevent congestion. Our collaboration with local authorities ensured rapid approvals and compliance with NZTA standards.",
+      planning: "Meticulous planning was key. We analyzed traffic patterns and event logistics to deploy clear signage, barriers, and STMS operators. Real-time monitoring allowed us to adapt quickly, ensuring smooth traffic flow throughout the event.",
+      safety: "Safety was paramount. We implemented pedestrian pathways, accessible parking zones, and emergency access routes, supported by regular compliance checks and safe site walkovers to maintain a secure environment.",
+      partnership: "Our partnership with the Christchurch Rugby Festival organizers showcased TMM’s ability to deliver cost-effective, safety-focused traffic solutions, enhancing the event experience for attendees and stakeholders."
     }
   },
   {
-    title: "Cherry Blossom Festival",
-    slug: "cherry-blossom-festival",
+    title: "Matangi Spring Festival",
+    slug: "matangi-spring-festival",
     location: "Matangi, NZ",
-    subtitle: "Unveiling Nature’s Splendor: Matangi’s Cherry Blossom Festival",
-    description: "Created traffic solutions for 5,000 daily visitors to Matangi, New Zealand, with limited infrastructure. Implemented parking solutions, signage, and pedestrian pathways.",
+    subtitle: "Celebrating Spring: Safe Traffic Solutions for Matangi’s Festival",
+    description: "Provided traffic management for 5,000 daily visitors to Matangi, New Zealand. Implemented parking solutions, signage, and pedestrian pathways with rapid TMP approvals.",
     image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80",
     stats: [
       { label: "Daily Visitors", value: "5,000", icon: "👥" },
@@ -99,88 +96,88 @@ const projects = [
       { label: "Location", value: "Matangi", icon: "📍" }
     ],
     challenges: [
-      "Limited rural infrastructure",
-      "Pedestrian/vehicle interactions",
-      "Preserving festival atmosphere"
+      "Managing limited rural infrastructure",
+      "Balancing pedestrian and vehicle flow",
+      "Preserving the festival atmosphere"
     ],
     overview: {
-      introduction: "Welcome to the picturesque town of Matangi, New Zealand, where nature paints a breathtaking masterpiece each spring. Matangi’s Cherry Blossom Festival is a celebration that ignites the senses, showcasing the ethereal beauty of cherry blossoms in full bloom. At TMMatters, we’re not just experts in road traffic management; we’re also passionate about connecting people to unique experiences, and the Cherry Blossom Festival is an event that perfectly embodies this connection.",
-      wonderland: "Matangi’s Cherry Blossom Festival transforms the town into a mesmerizing wonderland. Thousands of cherry trees burst into bloom, draping the landscape in delicate shades of pink and white. As a traffic management company committed to safe and seamless experiences, TMMatters collaborates closely with festival organizers to ensure smooth traffic flow, allowing visitors to navigate the area effortlessly.",
-      navigation: "At TMMatters, we understand that preserving the festival’s enchanting atmosphere is essential. Our experienced team of traffic management professionals devises comprehensive plans that prioritize safety while minimizing disruptions. From strategically positioned signs to efficient parking solutions, our seamless traffic management ensures that attendees can focus on indulging in the festival’s magic without any worries.",
-      safety: "Matangi’s Cherry Blossom Festival is not just an event; it’s a canvas of cherished memories waiting to be painted. Families and friends gather to revel in the festivities, from captivating cultural performances to mouthwatering food stalls. TMMatters plays a vital role in orchestrating a traffic management ballet that guarantees safe passage for all, allowing festival-goers to fully immerse themselves in every joyous moment.",
-      partnership: "TMMatters takes pride in being part of the fabric of Matangi’s Cherry Blossom Festival. Our commitment to excellence aligns seamlessly with the festival’s dedication to creating an unforgettable experience. With our expertise in traffic management, we ensure that attendees’ journey to and from the festival is as enchanting as the event itself."
+      introduction: "The Matangi Spring Festival is a celebration of community and nature. Traffic Management Matters Limited ensured safe and efficient traffic flow for 5,000 daily visitors, enhancing the festival experience.",
+      wonderland: "Matangi’s vibrant festival transforms the town into a hub of activity. TMM’s traffic solutions, including clear signage and temporary barriers, maintained the event’s charm while ensuring safety.",
+      navigation: "Our team designed a TMP to navigate limited rural infrastructure, with efficient parking and pedestrian pathways. Rapid TMP approvals and professional onsite management minimized disruptions.",
+      safety: "Safety was critical. We conducted safe site walkovers and deployed compliant signage to protect attendees, ensuring a secure and enjoyable festival for families and visitors.",
+      partnership: "Partnering with festival organizers, TMM delivered flexible, responsive traffic management that preserved the event’s atmosphere and supported its success."
     }
   },
   {
-    title: "Mawhera Quay New Year Party",
-    slug: "mawhera-quay-new-year-party",
+    title: "Mawhera Quay Festival",
+    slug: "mawhera-quay-festival",
     location: "Mawhera, NZ",
-    subtitle: "Celebrate the New Year in Style at Mawhera Quay, New Zealand – An Unforgettable Party Experience",
-    description: "Managed traffic for 5,000 attendees at Mawhera Quay’s New Year Party in New Zealand. Ensured seamless flow with optimized routes, parking, and safety protocols.",
+    subtitle: "Festive Flow: Traffic Management Matters at Mawhera Quay’s Celebration",
+    description: "Managed traffic for 5,000 attendees at Mawhera Quay’s festival in New Zealand. Ensured smooth flow with optimized routes, parking, and safety protocols.",
     image: "https://images.unsplash.com/photo-1483794344538-d0d2020a78a1?auto=format&fit=crop&w=1200&q=80",
     stats: [
       { label: "Attendees", value: "5,000", icon: "👥" },
-      { label: "Event Type", value: "Party", icon: "🎉" },
+      { label: "Event Type", value: "Festival", icon: "🎉" },
       { label: "Location", value: "Mawhera", icon: "📍" }
     ],
     challenges: [
-      "Managing late-night traffic",
+      "Managing peak evening traffic",
       "Ensuring pedestrian safety",
-      "Coordinating with local authorities"
+      "Coordinating with local councils"
     ],
     overview: {
-      introduction: "Are you ready to welcome the New Year in grandeur? Look no further than Mawhera Quay, a picturesque haven nestled in the heart of New Zealand, where an extraordinary New Year’s Eve celebration awaits you! At TMMatters, we’re excited to present the most thrilling and seamless traffic management services to ensure your journey to and from this exquisite event is nothing short of remarkable.",
-      eventDetails: "Mawhera Quay’s New Year Party has earned its reputation as the most sought-after extravaganza in New Zealand. Against the backdrop of stunning coastal views and a vibrant atmosphere, this event promises an unforgettable experience that will leave you with memories to cherish for a lifetime. As the clock ticks closer to midnight, Mawhera Quay transforms into a hub of excitement, offering a dazzling array of entertainment, live music, culinary delights, and a mesmerizing fireworks display that lights up the night sky. From families to friends, and locals to tourists, everyone gathers to bid adieu to the old year and embrace the new one with open arms.",
-      trafficManagement: "At TMMatters, we understand that reaching your destination should be as seamless as the event itself. Our unparalleled expertise in road traffic management ensures that your journey to and from Mawhera Quay’s New Year Party is safe, efficient, and stress-free. Our dedicated team of professionals works diligently to craft a meticulously planned traffic management strategy that takes into account every detail, from traffic flow optimization to road safety protocols.",
-      whyChooseUs: "Expertise: With years of experience under our belt, TMMatters is a name synonymous with excellence in traffic management. Our team of seasoned professionals is well-versed in orchestrating large-scale events, making your journey to Mawhera Quay a breeze. Custom Solutions: We understand that every event is unique. Our tailor-made traffic management solutions are designed to cater to the specific requirements of Mawhera Quay’s New Year Party, ensuring seamless traffic flow and minimal disruptions. Safety First: Your safety is our utmost priority. Our comprehensive traffic management plans prioritize the safety of all attendees, motorists, and pedestrians, guaranteeing a smooth and secure journey. Efficiency: Our innovative strategies are geared towards optimizing traffic flow, minimizing congestion, and reducing travel time, so you can spend more time enjoying the festivities and less time stuck in traffic. Collaborative Approach: We believe in collaboration and open communication. We work closely with event organizers, local authorities, and law enforcement to ensure a well-coordinated traffic management plan that aligns seamlessly with the event’s schedule.",
-      invitation: "The countdown to an extraordinary New Year’s celebration has begun, and TMMatters is your trusted partner in making this experience one to remember. Let us handle the traffic management intricacies while you immerse yourself in the magic of Mawhera Quay’s New Year Party. Contact us today and make your journey to the festivities hassle-free and enjoyable. Together, let’s ring in the New Year with style and excitement!"
+      introduction: "Mawhera Quay’s festival brought 5,000 attendees together, and Traffic Management Matters Limited ensured safe, efficient traffic management to enhance the celebration.",
+      eventDetails: "This vibrant festival featured live music, food stalls, and fireworks. TMM’s traffic solutions ensured attendees could focus on the festivities without traffic concerns.",
+      trafficManagement: "We implemented a TMP with optimized routes and parking solutions, securing rapid approvals from local councils. Our STMS operators managed traffic flow in real time.",
+      whyChooseUs: "TMM’s expertise, rapid approvals, and safety-first approach made us the ideal partner. Our flexible service ensured seamless traffic management, even during peak hours.",
+      invitation: "Partner with TMM for your next event. Contact us at 0800 866 247 or visit www.tmmatters.co.nz to ensure your celebration is safe and successful."
     }
   },
   {
-    title: "Nelson Half Marathon",
-    slug: "nelson-half-marathon",
+    title: "Nelson Road Upgrade",
+    slug: "nelson-road-upgrade",
     location: "Nelson, NZ",
-    subtitle: "Conquering the Nelson Half Marathon: A Safe and Smooth Road Race with TMMatters",
-    description: "Managed traffic for 5,000 participants at the Nelson Half Marathon in New Zealand. Implemented strategic road closures, safety measures, and efficient logistics.",
+    subtitle: "Building Safely: Traffic Management for Nelson’s Road Upgrade",
+    description: "Managed traffic for a major road upgrade in Nelson, New Zealand. Implemented strategic road closures, safety measures, and efficient detours with professional onsite management.",
     image: "https://images.unsplash.com/photo-1534105287632-6e93e0a3f490?auto=format&fit=crop&w=1200&q=80",
     stats: [
-      { label: "Participants", value: "5,000", icon: "🏃" },
-      { label: "Event Type", value: "Half Marathon", icon: "🏅" },
+      { label: "Project Duration", value: "6 Months", icon: "⏳" },
+      { label: "Event Type", value: "Infrastructure", icon: "🛠️" },
       { label: "Location", value: "Nelson", icon: "📍" }
     ],
     challenges: [
-      "Coordinating scenic route closures",
-      "Managing spectator zones",
-      "Ensuring emergency access"
+      "Minimizing disruption to daily traffic",
+      "Ensuring worker safety",
+      "Coordinating with contractors"
     ],
     overview: {
-      introduction: "Welcome to the heart-pounding excitement of the Nelson Half Marathon in New Zealand, where passionate runners from around the globe gather to push their limits and achieve remarkable feats. At TMMatters, we take immense pride in ensuring the safety, efficiency, and seamless flow of this incredible event, allowing participants to focus on their journey towards victory.",
-      eventDetails: "Nestled amidst the breathtaking landscapes of Nelson, New Zealand, the Nelson Half Marathon stands as a testament to human determination and perseverance. With its awe-inspiring route that winds through scenic vistas, lush forests, and charming local communities, this marathon has become a celebrated event on the global running calendar.",
-      contributions: "Behind the scenes, TMMatters plays an indispensable role in making the Nelson Half Marathon an unforgettable experience. Strategic Traffic Management: TMMatters strategically plans and executes traffic management solutions that seamlessly guide runners and spectators through the marathon route. Our meticulous planning ensures that road closures and diversions are flawlessly implemented, keeping traffic flowing smoothly in alternate routes. Safety First: Safety is our utmost priority. Our team implements comprehensive safety measures, including barricades, signage, and trained personnel, to safeguard participants, volunteers, and spectators along the marathon course. Efficient Logistics: We understand the importance of efficient logistics in a marathon of this scale. TMMatters expertly coordinates with local authorities, emergency services, and event organizers to ensure that the event’s logistics are streamlined, contributing to an uninterrupted flow of the race. Spectator Experience: We believe that every element of the marathon contributes to the overall experience. By skillfully managing traffic and minimizing disruptions, we enhance the viewing experience for the enthusiastic crowd, allowing them to fully immerse themselves in the excitement of the event.",
-      partnership: "Just as every runner’s dedication contributes to the success of the Nelson Half Marathon, TMMatters proudly stands as a driving force behind the scenes. Our commitment to excellence, safety, and efficiency ensures that participants and spectators alike can relish every moment of this thrilling event."
+      introduction: "The Nelson Road Upgrade was a critical infrastructure project, and Traffic Management Matters Limited delivered safe, compliant traffic management to keep it on track.",
+      eventDetails: "This six-month project involved major road improvements. TMM’s traffic solutions ensured minimal disruption while prioritizing worker and motorist safety.",
+      contributions: "We provided rapid TMP approvals, strategic road closures, and professional onsite management. Safe site walkovers and compliance checks maintained high safety standards.",
+      partnership: "Our collaboration with contractors and local councils ensured the project’s success, showcasing TMM’s ability to manage complex infrastructure traffic needs."
     }
   },
   {
-    title: "Cotswold School Triathlon",
-    slug: "cotswold-school-triathlon",
+    title: "Cotswold Community Event",
+    slug: "cotswold-community-event",
     location: "Cotswold, NZ",
-    subtitle: "Dominate Traffic Management at the Cotswold School Triathlon in New Zealand with TMMatters",
-    description: "Managed traffic for 1,000 participants at the Cotswold School Triathlon in New Zealand. Ensured seamless transitions with optimized routes and safety measures.",
+    subtitle: "Community in Motion: TMM at the Cotswold Community Event",
+    description: "Managed traffic for 1,000 attendees at a community event in Cotswold, New Zealand. Ensured smooth flow with optimized routes and safety measures.",
     image: "https://images.unsplash.com/photo-1629059904545-5b27e33e36d6?auto=format&fit=crop&w=1200&q=80",
     stats: [
-      { label: "Participants", value: "1,000", icon: "🏊‍♂️" },
-      { label: "Event Type", value: "Triathlon", icon: "🚴" },
+      { label: "Attendees", value: "1,000", icon: "👥" },
+      { label: "Event Type", value: "Community Event", icon: "🎭" },
       { label: "Location", value: "Cotswold", icon: "📍" }
     ],
     challenges: [
-      "Managing multi-sport transitions",
-      "Coordinating with school schedules",
-      "Ensuring participant safety"
+      "Managing local traffic patterns",
+      "Ensuring pedestrian safety",
+      "Coordinating with community organizers"
     ],
     overview: {
-      introduction: "Welcome to the exhilarating world of the Cotswold School Triathlon in New Zealand, where athleticism and adrenaline converge in a stunning natural setting. As the premier road Traffic Management Company, TMMatters is poised to elevate your event experience to new heights. Our expertise in traffic flow optimization and safety ensures a seamless and secure environment for participants, spectators, and organizers alike. Join us in creating an unforgettable event at the Cotswold School Triathlon that leaves a lasting impression.",
-      whyChooseUs: "At TMMatters, we recognize that a well-managed traffic plan is the cornerstone of any successful event. Our seasoned professionals bring a wealth of experience and innovation to the table, ensuring your Cotswold School Triathlon unfolds seamlessly. From strategizing traffic routes to implementing road closures and detours, we’re dedicated to optimizing traffic patterns that keep participants and attendees moving smoothly.",
-      partnership: "Collaborating with TMMatters means entrusting your event’s traffic management to a team dedicated to perfection. With an unwavering commitment to excellence, we’re more than just a service provider; we’re your partners in success. Let us transform the Cotswold School Triathlon into a spectacle that wows participants and spectators alike, leaving an indelible mark on their memories."
+      introduction: "The Cotswold Community Event brought residents together, and Traffic Management Matters Limited ensured safe, efficient traffic management for all attendees.",
+      whyChooseUs: "TMM’s expertise in rapid TMP approvals and professional onsite management ensured a seamless event. Our safety-focused solutions protected attendees and enhanced the experience.",
+      partnership: "Partnering with Cotswold organizers, TMM delivered cost-effective, compliant traffic solutions that supported the community’s celebration."
     }
   }
 ];
@@ -327,7 +324,7 @@ const GridModal = ({ photos, onClose, onPhotoClick }) => {
   );
 };
 
-// PhotoLibrarySection (unchanged)
+// PhotoLibrarySection
 const PhotoLibrarySection = () => {
   const [activePhoto, setActivePhoto] = useState(null);
   const [showGrid, setShowGrid] = useState(false);
@@ -385,7 +382,7 @@ const PhotoLibrarySection = () => {
               <circle cx="8" cy="18" r="2" fill="#0F0F0F" />
               <circle cx="16" cy="18" r="2" fill="#0F0F0F" />
             </svg>
-            <span className="text-sm sm:text-base font-semibold text-amber-400">Our Visual Legacy</span>
+            <span className="text-sm sm:text-base font-semibold text-amber-400">Our Visual Impact</span>
           </motion.div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold mb-4 sm:mb-5">
             <motion.span 
@@ -394,7 +391,7 @@ const PhotoLibrarySection = () => {
               animate={{ backgroundPosition: '100% 50%' }}
               transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
             >
-              Photo Library
+              Our Work in Action
             </motion.span>
           </h2>
           <motion.p
@@ -403,7 +400,7 @@ const PhotoLibrarySection = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            Discover our innovative traffic management solutions through captivating visuals.
+            See how Traffic Management Matters delivers safe, compliant, and efficient traffic solutions across New Zealand.
           </motion.p>
         </motion.div>
       </div>
@@ -549,7 +546,7 @@ const CarIcon = () => {
       }}
     >
       <rect x="4" y="12" width="16" height="6" rx="2" fill="#FFD600" />
-      <rect x="6" y="8" width="12" height="4" fill="#FFD600" />
+      <rect x="6" y="8" width="12" height="4" fill="#FFD700" />
       <circle cx="8" cy="18" r="2" fill="#1A1A1A" />
       <circle cx="16" cy="18" r="2" fill="#1A1A1A" />
     </motion.svg>
@@ -664,7 +661,7 @@ const ProjectModal = ({ project, onClose }) => {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5 }}
                 >
-                  Nature's Palette: A Blossom Wonderland
+                  A Vibrant Celebration
                 </motion.h4>
                 <p className="text-gray-300 mb-4">{project.overview.wonderland}</p>
               </>
@@ -677,7 +674,7 @@ const ProjectModal = ({ project, onClose }) => {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5 }}
                 >
-                  Ensuring Uninterrupted Flow
+                  Ensuring Smooth Flow
                 </motion.h4>
                 <p className="text-gray-300 mb-4">{project.overview.uninterruptedFlow}</p>
               </>
@@ -703,7 +700,7 @@ const ProjectModal = ({ project, onClose }) => {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5 }}
                 >
-                  Navigating with Ease
+                  Seamless Navigation
                 </motion.h4>
                 <p className="text-gray-300 mb-4">{project.overview.navigation}</p>
               </>
@@ -716,7 +713,7 @@ const ProjectModal = ({ project, onClose }) => {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5 }}
                 >
-                  Meticulous Planning, Flawless Execution
+                  Meticulous Planning
                 </motion.h4>
                 <p className="text-gray-300 mb-4">{project.overview.planning}</p>
               </>
@@ -768,7 +765,7 @@ const ProjectModal = ({ project, onClose }) => {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5 }}
                 >
-                  Elevating the Event Experience
+                  Enhancing the Event Experience
                 </motion.h4>
                 <p className="text-gray-300 mb-4">{project.overview.eventExperience}</p>
               </>
@@ -781,7 +778,7 @@ const ProjectModal = ({ project, onClose }) => {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5 }}
                 >
-                  Why Choose TMMatters
+                  Why Choose TMM
                 </motion.h4>
                 <p className="text-gray-300 mb-4">{project.overview.whyChooseUs}</p>
               </>
@@ -845,7 +842,7 @@ const ProjectModal = ({ project, onClose }) => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
-              Event Statistics
+              Project Statistics
             </motion.h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {project.stats.map((stat, i) => (
@@ -883,7 +880,7 @@ const ProjectModal = ({ project, onClose }) => {
                 [Traffic Flow Visualization]
               </div>
               <div className="mt-4 text-sm text-gray-300">
-                Our real-time monitoring ensured smooth traffic flow with zero congestion points.
+                Our professional onsite management ensured zero incidents and smooth traffic flow.
               </div>
             </motion.div>
           </div>
@@ -901,9 +898,9 @@ const ProjectModal = ({ project, onClose }) => {
             </motion.h3>
             <div className="space-y-4">
               {[
-                { title: "Custom Traffic Plan", description: "Tailored strategy addressing event-specific requirements and local conditions." },
-                { title: "Advanced Signage", description: "Clear, visible signage with real-time updates for changing conditions." },
-                { title: "Staff Coordination", description: "Trained personnel at key locations with centralized communication." }
+                { title: "Rapid TMP Approval", description: "Fast-tracked traffic management plans with full council compliance." },
+                { title: "Professional Signage", description: "Clear, compliant signage for safe navigation and minimal disruption." },
+                { title: "STMS Coordination", description: "Skilled STMS operators at key locations with real-time oversight." }
               ].map((solution, i) => (
                 <motion.div
                   key={i}
@@ -946,7 +943,7 @@ const ProjectModal = ({ project, onClose }) => {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-gray-300">Zero traffic incidents, 40% reduction in congestion, and positive stakeholder feedback.</p>
+                  <p className="text-gray-300">Zero incidents, reduced congestion, and positive feedback from stakeholders.</p>
                 </div>
               </div>
             </motion.div>
@@ -977,7 +974,7 @@ const ProjectModal = ({ project, onClose }) => {
   );
 };
 
-// ProjectsSection (completed)
+// ProjectsSection
 const ProjectsSection = () => {
   const [activeProject, setActiveProject] = useState(null);
 
@@ -1069,12 +1066,12 @@ const ProjectsSection = () => {
         >
           <div className="inline-flex items-center gap-3 mb-4 px-4 py-2 bg-amber-400/10 border border-amber-400/30 rounded-full">
             <CarIcon />
-            <span className="text-sm font-medium text-amber-400">Our Event Portfolio</span>
+            <span className="text-sm font-medium text-amber-400">Our Success Stories</span>
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-600">
-              Traffic Management Timeline
+              Our Project Highlights
             </span>
           </h2>
 
@@ -1084,7 +1081,7 @@ const ProjectsSection = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            Explore how we’ve managed traffic for New Zealand’s premier events with precision and innovation.
+            Discover how Traffic Management Matters delivers safe, compliant traffic solutions for New Zealand’s events and infrastructure projects.
           </motion.p>
         </motion.div>
       </div>

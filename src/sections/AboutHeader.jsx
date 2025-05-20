@@ -106,7 +106,7 @@ const AboutHeader = () => {
             >
               <motion.img 
                 src={aboutusimages}
-                alt="Road Planning Design"
+                alt="Traffic Management Solutions"
                 className="w-full h-full object-cover"
                 initial={{ scale: 1.1 }}
                 animate={{ scale: 1 }}
@@ -120,7 +120,7 @@ const AboutHeader = () => {
                   transition={{ delay: 0.8 }}
                   className="text-white text-lg font-medium"
                 >
-                  <span className="bg-amber-500/90 px-3 py-1 rounded-md">Award-Winning Road Design 2023</span>
+                  <span className="bg-amber-500/90 px-3 py-1 rounded-md">Trusted Traffic Solutions Since 2021</span>
                 </motion.div>
               </div>
             </motion.div>
@@ -128,8 +128,8 @@ const AboutHeader = () => {
             {/* Features */}
             <motion.div variants={itemVariants} className="mt-8 grid grid-cols-2 gap-4">
               {[
-                { title: "Precision Planning", content: "Optimized road designs for safety and flow", icon: "🛤️" },
-                { title: "Smart Signage", content: "Clear symbols for better navigation", icon: "🚸" },
+                { title: "Rapid TMP Approvals", content: "Fast-track plans with full compliance", icon: "📋" },
+                { title: "Safety First", content: "Certified crews ensure site safety", icon: "🛑" },
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -152,7 +152,7 @@ const AboutHeader = () => {
                   className="px-5 py-2 bg-amber-500/10 text-amber-400 rounded-full text-sm font-medium border border-amber-500/30"
                   whileHover={{ scale: 1.05 }}
                 >
-                  🗺️ Pioneering Road Planning Since 2010
+                  🚦 Comprehensive Traffic Management Solutions
                 </motion.span>
               </motion.div>
 
@@ -173,24 +173,28 @@ const AboutHeader = () => {
                   animate="animate"
                   className="block"
                 >
-                  About RoadPlan Innovations
+                  About Us
                 </motion.span>
               </motion.h1>
 
-              <motion.p 
+              <motion.p
                 variants={itemVariants}
                 className="text-gray-300 text-lg md:text-xl mb-8 leading-relaxed"
               >
-                RoadPlan Innovations leads the way in <span className="text-amber-400 font-medium">traffic management and road planning design</span>. With over a decade of experience, we create safer, more efficient roads using advanced planning and clear traffic symbols.
+                At <span className="text-amber-400 font-medium">Traffic Management Matters Limited</span>, we specialize in delivering <span className="text-amber-400 font-medium">comprehensive, reliable, and compliant traffic management solutions</span> across New Zealand. Since 2021, our mission has been to ensure your projects run <span className="text-amber-400 font-medium">smoothly, safely, and on schedule</span>, every time.
               </motion.p>
 
               {/* Bullet Points */}
               <motion.div variants={itemVariants} className="space-y-5 mb-8">
                 {[
-                  "Expert road planning with real-time traffic analysis",
-                  "Designed 100+ projects with optimized traffic flow",
-                  "Reduced congestion by 40% through proper road design",
-                  "Award-winning traffic signage and symbols"
+                 " SiteWise Green Certified",
+                  "Rapid TMP approvals to keep projects on track",
+                  "Cost-effective solutions maximizing your budget",
+                  "Professional onsite management by skilled STMS operators",
+                  "Flexible, responsive service for urgent and after-hours needs",
+                  "Managed thousands of projects, from minor works to major closures",
+                  "Certified TTM courses to enhance industry skills",
+                  "Dry gear hire with fast delivery across New Zealand"
                 ].map((item, index) => (
                   <motion.div key={index} className="flex items-start" whileHover={{ x: 5 }}>
                     <div className="flex-shrink-0 mt-1">
@@ -208,27 +212,12 @@ const AboutHeader = () => {
                   </motion.div>
                 ))}
               </motion.div>
-
-              {/* Buttons 
-              <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-                <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold rounded-full hover:shadow-xl hover:shadow-amber-500/30 transition-all relative overflow-hidden"
-                >
-                  <a href="#services" className="relative z-10 text-white hover:underline">
-                    Explore Road Designs
-                  </a>
-                </motion.button>
-
-                <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 border-2 border-amber-500 text-amber-400 font-bold rounded-full hover:bg-amber-500/10 transition-all relative"
-                >
-                  <a href="#our-team" className="relative z-10">Meet Our Planners</a>
-                </motion.button>
-              </motion.div>*/}
+              {/* <motion.p
+                variants={itemVariants}
+                className="text-gray-300 text-lg md:text-xl mb-8 leading-relaxed"
+              >
+                <span className="text-amber-400 font-medium">Contact us today:</span> 📞 0800 866 247 | 🌐 <a href="http://www.tmmatters.co.nz" className="text-amber-400 hover:underline">www.tmmatters.co.nz</a>
+              </motion.p> */}
             </motion.div>
           </div>
         </div>

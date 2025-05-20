@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaPhone, FaAddressBook, FaLinkedin, FaFacebook } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaAddressBook, FaLinkedin, FaFacebook, FaInstagram } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import logo from '../assets/Logo-11.png';
 
@@ -123,6 +123,17 @@ const Footer = () => {
                 whileTap={{ scale: 0.9 }}
               >
                 <FaFacebook size={20} />
+              </motion.a>
+              <motion.a
+                href="https://www.instagram.com/traffic_management_matters/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-amber-400 transition-colors"
+                whileHover={{ y: -3, scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                aria-label="TM Matters on Instagram"
+              >
+                <FaInstagram size={18} />
               </motion.a>
             </div>
           </div>

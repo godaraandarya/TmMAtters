@@ -54,13 +54,13 @@ const HeroSection = () => {
   const statsIcons = [
     // Magnifying Glass (Detection Accuracy)
     <svg key="magnify" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-      />
-    </svg>,
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M12 2L5 20h14L12 2zM5 20h14"
+    />
+  </svg>,
     // Bolt (Traffic Flow)
     <svg key="bolt" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
@@ -72,12 +72,13 @@ const HeroSection = () => {
     </svg>,
     // Road (Roads Mapped)
     <svg key="road" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M13 16V6a1 1 0 00-2 0v10a1 1 0 002 0zm-9-4h2m14 0h2m-9 4h2m-2-8h2"
-      />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2zM9 9h6m-6 4h6m-6 4h4"
+    />
+
     </svg>,
   ];
 
@@ -143,7 +144,7 @@ const HeroSection = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
               >
-                Advanced Traffic Managment
+                Advanced Traffic Management
               </motion.div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
@@ -179,7 +180,7 @@ const HeroSection = () => {
                     d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447-2.724A1 1 0 0021 13.382V2.618a1 1 0 00-1.447-.894L15 4m0 13V4"
                   />
                 </svg>
-                Comprehensive traffic management solutions ensuring safety, compliance, and efficiency across New Zealand.
+                Comprehensive traffic management solutions ensuring safety, compliance and efficiency across New Zealand.
               </motion.p>
 
               <div className="flex flex-col sm:flex-row gap-4">
@@ -260,22 +261,22 @@ const HeroSection = () => {
             >
               {[
                 {
-                  value: '95%',
-                  text: 'Detection Accuracy',
+                  value: '200,000+',
+                  text: 'Cones Placed',
                   barColor: 'bg-amber-400',
                   barWidth: '95%',
                   icon: statsIcons[0],
                 },
                 {
-                  value: '40% Faster',
-                  text: 'Traffic Flow Improvement',
+                  value: '99% ',
+                  text: 'TMP Approval Success',
                   barColor: 'bg-yellow-500',
                   barWidth: '70%',
                   icon: statsIcons[1],
                 },
                 {
-                  value: '10,000+',
-                  text: 'Roads Mapped',
+                  value: '18',
+                  text: 'Vehicles in Fleet ',
                   barColor: 'bg-amber-500',
                   barWidth: '85%',
                   icon: statsIcons[2],

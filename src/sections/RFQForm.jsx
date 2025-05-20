@@ -260,7 +260,7 @@ const RFQForm = () => {
                   {[
                     { name: "trafficManagementPlan", label: "Traffic Management Plan" },
                     { name: "siteEstablishment", label: "Site Establishment" },
-                    { name: "dryGearHire", label: "Dry Gear Hire" },
+                    { name: "dryGearHire", label: "Gear Hire" },
                     { name: "siteChecks", label: "24 Hour Site Checks" },
                     { name: "planningForTender", label: "Planning for Tender" },
                   ].map((service) => (

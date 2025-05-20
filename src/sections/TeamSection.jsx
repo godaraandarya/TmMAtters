@@ -8,23 +8,23 @@ const TeamSection = () => {
   const themeColor = '#FFD600'; // Primary amber color
   const themeDark = '#1A1A1A'; // Dark background
 
-  const founders = [
+  const team = [
     {
-      name: "Chaitanya Godara",
-      role: "Managing Director & Head of Innovation",
-      bio: "Leads strategic direction, vision, and innovation initiatives. Oversees prototyping, development, and implementation of IoT and AI-driven products. Responsible for ensuring technical excellence, staying ahead of industry trends, and maintaining competitive advantage. Drives partnerships, stakeholder relationships, and company growth.",
-      quote: "True innovation solves real problems, not just creates shiny features.",
+      name: "Chaitanya",
+      role: "Managing Director",
+      bio: "Leads the strategic vision and operations of Traffic Management Matters Limited. Oversees the delivery of compliant traffic management solutions, ensuring projects run safely and on schedule. Drives partnerships with contractors, councils, and NZTA, maintaining TMM's reputation for rapid TMP approvals and professional onsite management. Committed to innovation in traffic safety and operational excellence.",
+      quote: "Safety and efficiency are the heart of every successful project.",
       image: founder,
       linkedin: "https://www.linkedin.com/in/chaitanya-godara-9853b9b/",
       accentColor: "#FBBF24" // Lighter amber for distinction
     },
     {
-      name: "Nikita Arya",
-      role: "Director of Operations & Product Design",
-      bio: "Oversees product development, particularly design, aesthetics, usability, and quality control. Manages compliance, approvals, and operational excellence for all products and services. Leads team coordination, ensuring efficient workflow, strong team morale, and timely project delivery. Guides the company's branding and market positioning strategies, ensuring alignment with company values and vision.",
-      quote: "Great code is like poetry - every line should serve a purpose.",
+      name: "Business Development Manager",
+      role: "Business Development Manager",
+      bio: "Spearheads growth initiatives and client relationships for Traffic Management Matters Limited. Manages outreach to contractors, councils, and infrastructure providers, securing new projects and partnerships. Ensures TMM's services, from TMP design to onsite management, meet client needs while driving market expansion. Passionate about delivering cost-effective, safety-focused solutions.",
+      quote: "Building strong partnerships keeps our projects moving forward.",
       image: founder2,
-      linkedin: "https://www.linkedin.com/in/nikita-arya-502583150?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      linkedin: "https://www.linkedin.com/", // Placeholder, update with actual link if available
       accentColor: "#FFD600" // Primary amber for distinction
     }
   ];
@@ -51,7 +51,7 @@ const TeamSection = () => {
             className="text-4xl md:text-5xl font-bold mb-4 font-serif tracking-tight"
             style={{ color: themeColor }}
           >
-            Meet Our Visionaries
+            Meet Our Leadership
           </h2>
           <div 
             className="w-16 h-1 mx-auto mb-4 rounded-full"
@@ -61,13 +61,13 @@ const TeamSection = () => {
             className="text-lg max-w-2xl mx-auto leading-relaxed"
             style={{ color: '#D1D5DB' }} // Light gray for secondary text
           >
-            The brilliant minds shaping our company's future
+            The dedicated leaders driving TMM's success
           </p>
         </motion.div>
 
-        {/* Founders Grid */}
+        {/* Team Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {founders.map((founder, index) => (
+          {team.map((member, index) => (
             <motion.div
               key={index}
               className="relative group"
@@ -92,7 +92,7 @@ const TeamSection = () => {
               >
                 {/* Image and Info */}
                 <div className="p-6 flex flex-col md:flex-row items-center">
-                  {/* Founder Image */}
+                  {/* Member Image */}
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 300 }}
@@ -101,37 +101,37 @@ const TeamSection = () => {
                     <div 
                       className="w-32 h-32 rounded-full overflow-hidden border-4 relative"
                       style={{ 
-                        borderColor: founder.accentColor,
+                        borderColor: member.accentColor,
                         boxShadow: `0 4px 12px rgba(251, 191, 36, 0.2)`
                       }}
                     >
                       <img
-                        src={founder.image}
-                        alt={founder.name}
+                        src={member.image}
+                        alt={member.name}
                         className="w-full h-full object-cover"
                       />
                     </div>
                   </motion.div>
 
-                  {/* Founder Info */}
+                  {/* Member Info */}
                   <div className="text-center md:text-left flex-1">
                     <h3 
                       className="text-xl font-bold mb-1 font-serif"
                       style={{ color: '#FFFFFF' }} // White for primary text
                     >
-                      {founder.name}
+                      {member.name}
                     </h3>
                     <p 
                       className="text-base mb-3 font-medium"
-                      style={{ color: founder.accentColor }}
+                      style={{ color: member.accentColor }}
                     >
-                      {founder.role}
+                      {member.role}
                     </p>
                     <p 
                       className="text-gray-400 mb-4 leading-relaxed text-sm"
                       style={{ color: '#D1D5DB' }} // Light gray for secondary text
                     >
-                      {founder.bio}
+                      {member.bio}
                     </p>
                   </div>
                 </div>
@@ -139,12 +139,12 @@ const TeamSection = () => {
                 {/* LinkedIn Button */}
                 <div className="flex justify-center mb-6 px-6">
                   <motion.a
-                    href={founder.linkedin}
+                    href={member.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 font-medium px-5 py-2 rounded-full transition-all duration-300 relative overflow-hidden"
                     style={{
-                      backgroundColor: founder.accentColor,
+                      backgroundColor: member.accentColor,
                       color: '#1A1A1A', // Dark text for contrast on amber
                       boxShadow: `0 2px 8px rgba(251, 191, 36, 0.3)`
                     }}
@@ -170,13 +170,13 @@ const TeamSection = () => {
                   <div className="flex items-start">
                     <FaQuoteLeft 
                       className="mt-1 mr-2 flex-shrink-0 text-sm" 
-                      style={{ color: founder.accentColor }} 
+                      style={{ color: member.accentColor }} 
                     />
                     <blockquote 
                       className="italic text-gray-300 font-serif text-sm"
                       style={{ color: '#D1D5DB' }} // Light gray for quote text
                     >
-                      {founder.quote}
+                      {member.quote}
                     </blockquote>
                   </div>
                 </div>

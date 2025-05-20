@@ -3,7 +3,7 @@ import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
 import DatePicker from 'react-datepicker';
 import { ToastContainer, toast } from 'react-toastify';
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaRoad, FaLinkedin, FaFacebook } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaRoad, FaLinkedin, FaFacebook, FaInstagram } from 'react-icons/fa';
 import 'react-datepicker/dist/react-datepicker.css';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -293,6 +293,17 @@ const ContactUsForm = () => {
                 aria-label="TM Matters on LinkedIn"
               >
                 <FaLinkedin size={18} />
+              </motion.a>
+              <motion.a
+                href="https://www.instagram.com/traffic_management_matters/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-amber-400 transition-colors"
+                variants={iconVariants}
+                whileHover="hover"
+                aria-label="TM Matters on LinkedIn"
+              >
+                <FaInstagram size={18} />
               </motion.a>
               <motion.a
                 href="https://www.facebook.com/tmmatters"
